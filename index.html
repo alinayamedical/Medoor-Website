@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>medoor — Medical to Door | Home Healthcare Services, Saudi Arabia</title>
+<meta name="description" content="Medoor provides professional home healthcare services across Saudi Arabia — nursing, therapy, and clinical care delivered to patients at home.">
+<meta property="og:title" content="medoor — Medical to Door">
+<meta property="og:description" content="Compassionate care, delivered to your door. Professional home healthcare across Saudi Arabia.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Raleway:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal:      #27B899;
+  --teal-dk:   #1E9B83;
+  --teal-lt:   #3ECDB2;
+  --navy:      #1E3A7A;
+  --navy-dk:   #122660;
+  --navy-lt:   #2B4FA0;
+  --white:     #FFFFFF;
+  --offwhite:  #F5F7FA;
+  --charcoal:  #1A2238;
+  --grey:      #6B7280;
+  --grey-lt:   #9CA3AF;
+  --border:    #E5E7EB;
+  --border-dk: #D1D5DB;
+  --nav-h:     76px;
+  --max-w:     1140px;
+  --pad-x:     64px;
+  --r:         8px;
+  --ease:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Raleway', 'Arial', sans-serif;
+  font-weight: 400;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ar"] body { font-family: 'Cairo', 'Arial', sans-serif; }
+img, svg { display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+
+@media (max-width: 1024px) { :root { --pad-x: 40px; } }
+@media (max-width: 767px)  { :root { --pad-x: 24px; } }
+
+/* ══════════════════════════════════════════
+   LOGO SVG HEART (inline, reusable via use)
+══════════════════════════════════════════ */
+
+.logo-icon-white { filter: brightness(0) invert(1); }
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+#nav.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+}
+
+.nav-inner {
+  height: 100%;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0 var(--pad-x);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.nav-logo {
+  flex-shrink: 0; direction: ltr;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-icon { height: 38px; width: auto; flex-shrink: 0; }
+.nav-wordmark {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 22px;
+  color: var(--navy); letter-spacing: -0.5px;
+  line-height: 1;
+}
+.nav-wordmark-sub {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600; font-size: 8px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--teal); display: block; margin-top: 2px;
+}
+.nav-wordmark-ar {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800; font-size: 18px;
+  color: var(--navy); display: none; line-height: 1;
+}
+.nav-wordmark-ar-sub {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600; font-size: 9px;
+  color: var(--teal); display: none; margin-top: 2px;
+}
+html[lang="ar"] .nav-wordmark, html[lang="ar"] .nav-wordmark-sub { display: none; }
+html[lang="ar"] .nav-wordmark-ar, html[lang="ar"] .nav-wordmark-ar-sub { display: block; }
+
+.nav-links {
+  display: flex; align-items: center;
+  gap: 40px; flex: 1; justify-content: center;
+}
+.nav-links a {
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--grey-lt);
+  transition: color 0.2s;
+  position: relative; white-space: nowrap;
+}
+html[lang="ar"] .nav-links a {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0; font-size: 13.5px; text-transform: none;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -5px; left: 0; right: 0;
+  height: 2px; background: var(--teal);
+  transform: scaleX(0);
+  transition: transform 0.25s var(--ease);
+  transform-origin: left; border-radius: 2px;
+}
+html[dir="rtl"] .nav-links a::after { transform-origin: right; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.lang-toggle {
+  display: flex; align-items: center;
+  border: 1.5px solid var(--border-dk);
+  border-radius: var(--r); overflow: hidden; flex-shrink: 0;
+}
+.lang-toggle button {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; padding: 7px 13px;
+  color: var(--grey); transition: background 0.2s, color 0.2s;
+  font-family: 'Raleway', sans-serif;
+}
+.lang-toggle button.active { background: var(--navy); color: var(--white); }
+.lang-toggle button:not(.active):hover { background: var(--offwhite); color: var(--navy); }
+
+.nav-hamburger {
+  display: none; flex-direction: column;
+  gap: 5px; padding: 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; flex-direction: column;
+  background: var(--white); border-top: 1px solid var(--border);
+  padding: 16px 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--grey); padding: 13px 24px;
+  transition: color 0.2s, background 0.2s;
+}
+html[lang="ar"] .mobile-menu a { font-family: 'Cairo', sans-serif; letter-spacing: 0; text-transform: none; }
+.mobile-menu a:hover { color: var(--navy); background: var(--offwhite); }
+.mobile-lang {
+  display: flex; gap: 8px;
+  padding: 12px 24px; border-top: 1px solid var(--border); margin-top: 8px;
+}
+.mobile-lang button {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  padding: 6px 14px; border: 1.5px solid var(--border);
+  border-radius: var(--r); color: var(--grey);
+  font-family: 'Raleway', sans-serif;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.mobile-lang button.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+@media (max-width: 767px) {
+  .nav-links { display: none; }
+  .lang-toggle { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+#hero {
+  background-color: var(--navy-dk);
+  padding: calc(var(--nav-h) + 96px) var(--pad-x) 120px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse, rgba(39,184,153,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-parent-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+html[lang="ar"] .hero-parent-link { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 11px; }
+.hero-parent-link:hover { color: rgba(255,255,255,0.6); }
+.hero-parent-link svg { width: 12px; height: 12px; }
+
+.hero-logo-wrap {
+  display: flex; align-items: center; justify-content: center;
+  gap: 18px; margin-bottom: 36px;
+}
+.hero-heart { width: 72px; height: auto; }
+.hero-logo-full {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(39,184,153,0.12);
+  border: 1px solid rgba(39,184,153,0.35);
+  border-radius: 100px;
+  padding: 8px 22px;
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal-lt);
+  margin-bottom: 36px;
+}
+html[lang="ar"] .hero-badge { letter-spacing: 0; font-family: 'Cairo', sans-serif; font-size: 12px; }
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--teal); border-radius: 50%; flex-shrink: 0;
+}
+
+.hero-headline {
+  font-size: clamp(52px, 6vw, 64px); font-weight: 700;
+  line-height: 1.08; color: var(--white);
+  max-width: 820px; margin: 0 auto 28px; letter-spacing: -0.5px;
+}
+html[lang="ar"] .hero-headline {
+  font-family: 'Cairo', sans-serif;
+  font-size: clamp(44px, 5.5vw, 56px); letter-spacing: 0; line-height: 1.2;
+}
+.hero-headline em { color: var(--teal); font-style: normal; }
+
+.hero-sub {
+  font-size: 17px; font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  max-width: 580px; margin: 0 auto 52px; line-height: 1.9;
+}
+html[lang="ar"] .hero-sub { font-family: 'Cairo', sans-serif; font-size: 16px; }
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal); color: var(--navy-dk);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px 44px; border-radius: var(--r);
+  box-shadow: 0 4px 20px rgba(39,184,153,0.4);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+html[lang="ar"] .hero-cta { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 14px; }
+.hero-cta:hover {
+  background: var(--teal-lt);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(39,184,153,0.5);
+}
+.hero-cta svg { width: 16px; height: 16px; }
+
+/* ══════════════════════════════════════════
+   SECTION SHARED
+══════════════════════════════════════════ */
+.section    { padding: 100px 0; }
+.section-sm { padding: 80px 0; }
+.bg-white    { background: var(--white); }
+.bg-offwhite { background: var(--offwhite); }
+.bg-navy     { background: var(--navy); }
+.bg-navy-dk  { background: var(--navy-dk); }
+.bg-teal     { background: var(--teal-dk); }
+
+.eyebrow {
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before {
+  content: ''; width: 20px; height: 2px;
+  background: var(--teal); border-radius: 2px; flex-shrink: 0;
+}
+html[dir="rtl"] .eyebrow { flex-direction: row-reverse; }
+html[lang="ar"] .eyebrow { letter-spacing: 0; font-family: 'Cairo', sans-serif; font-size: 12px; }
+.bg-navy .eyebrow, .bg-navy-dk .eyebrow { color: rgba(39,184,153,0.9); }
+.bg-navy .eyebrow::before, .bg-navy-dk .eyebrow::before { background: rgba(39,184,153,0.6); }
+
+h2.sec-heading {
+  font-size: clamp(36px, 3.8vw, 42px); font-weight: 700;
+  color: var(--navy); line-height: 1.15;
+  margin-bottom: 18px; letter-spacing: -0.3px;
+}
+html[lang="ar"] h2.sec-heading { font-family: 'Cairo', sans-serif; font-size: clamp(32px, 3.5vw, 36px); letter-spacing: 0; }
+.bg-navy h2.sec-heading, .bg-navy-dk h2.sec-heading { color: var(--white); }
+
+.teal-bar {
+  width: 52px; height: 3px;
+  background: linear-gradient(to right, var(--teal), var(--teal-lt));
+  border-radius: 3px; margin-bottom: 44px;
+}
+html[dir="rtl"] .teal-bar { margin-left: auto; margin-right: 0; background: linear-gradient(to left, var(--teal), var(--teal-lt)); }
+
+/* ══════════════════════════════════════════
+   ABOUT
+══════════════════════════════════════════ */
+.about-body p {
+  font-size: 16px; color: var(--grey);
+  margin-bottom: 22px; line-height: 1.9;
+}
+html[lang="ar"] .about-body p { font-family: 'Cairo', sans-serif; }
+.about-body p:last-child { margin-bottom: 0; }
+
+.about-callout {
+  display: inline-flex; align-items: flex-start; gap: 14px;
+  background: rgba(39,184,153,0.06);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 18px 22px; margin-top: 28px;
+}
+html[dir="rtl"] .about-callout {
+  border-left: none; border-right: 3px solid var(--teal);
+  border-radius: var(--r) 0 0 var(--r);
+}
+.about-callout p {
+  font-size: 14px; font-weight: 600;
+  color: var(--teal-dk); margin: 0;
+}
+html[lang="ar"] .about-callout p { font-family: 'Cairo', sans-serif; }
+
+/* ══════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════ */
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 12px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--r);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+.svc-icon {
+  width: 52px; height: 52px;
+  background: rgba(39,184,153,0.08);
+  border: 1px solid rgba(39,184,153,0.15);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.svc-icon svg { width: 26px; height: 26px; color: var(--teal); stroke: currentColor; fill: none; }
+
+.svc-name {
+  font-size: 16px; font-weight: 700;
+  color: var(--navy); margin-bottom: 10px; line-height: 1.3;
+}
+html[lang="ar"] .svc-name { font-family: 'Cairo', sans-serif; font-size: 17px; }
+
+.svc-desc { font-size: 14px; color: var(--grey); line-height: 1.8; }
+html[lang="ar"] .svc-desc { font-family: 'Cairo', sans-serif; font-size: 15px; }
+
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.svc-tag {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--teal-dk);
+  background: rgba(39,184,153,0.08);
+  border: 1px solid rgba(39,184,153,0.18);
+  border-radius: 100px; padding: 4px 10px;
+}
+html[lang="ar"] .svc-tag { font-family: 'Cairo', sans-serif; letter-spacing: 0; text-transform: none; font-size: 11px; }
+
+/* ══════════════════════════════════════════
+   MISSION & VISION
+══════════════════════════════════════════ */
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.mv-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--r);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.mv-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+.mv-icon {
+  width: 44px; height: 44px;
+  background: rgba(39,184,153,0.08);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.mv-icon svg { width: 22px; height: 22px; color: var(--teal); }
+
+.mv-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 14px;
+}
+html[lang="ar"] .mv-label { letter-spacing: 0; font-family: 'Cairo', sans-serif; font-size: 11px; }
+
+.mv-card h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+html[lang="ar"] .mv-card h3 { font-family: 'Cairo', sans-serif; }
+
+.mv-card p { font-size: 15px; color: var(--grey); line-height: 1.9; }
+html[lang="ar"] .mv-card p { font-family: 'Cairo', sans-serif; font-size: 16px; }
+
+/* ══════════════════════════════════════════
+   WHY MEDOOR
+══════════════════════════════════════════ */
+.why-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-top: 48px;
+}
+
+.why-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 2px solid rgba(39,184,153,0.3);
+  border-radius: 10px; padding: 32px 20px;
+  text-align: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  cursor: default;
+}
+.why-card:hover {
+  background: rgba(255,255,255,0.13);
+  border-bottom-color: var(--teal);
+  transform: translateY(-4px);
+}
+.why-icon {
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.why-icon svg { width: 28px; height: 28px; color: rgba(255,255,255,0.85); stroke: currentColor; fill: none; }
+.why-num { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: rgba(39,184,153,0.45); margin-bottom: 8px; }
+.why-name { font-size: 13.5px; font-weight: 700; color: var(--teal-lt); margin-bottom: 10px; line-height: 1.3; }
+html[lang="ar"] .why-name { font-family: 'Cairo', sans-serif; font-size: 14px; }
+.why-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+html[lang="ar"] .why-desc { font-family: 'Cairo', sans-serif; font-size: 13px; }
+
+/* ══════════════════════════════════════════
+   FIGURES BAND
+══════════════════════════════════════════ */
+.figures-band { background: var(--navy-dk); }
+
+.figures-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  max-width: var(--max-w); margin: 0 auto;
+}
+
+.figure-item {
+  text-align: center; padding: 60px 24px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+}
+.figure-item::after {
+  content: '';
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 3px; background: var(--teal);
+  transition: width 0.4s var(--ease); border-radius: 2px;
+}
+.figure-item:hover::after { width: 60%; }
+.figure-item:last-child { border-right: none; }
+html[dir="rtl"] .figure-item { border-right: none; border-left: 1px solid rgba(255,255,255,0.07); }
+html[dir="rtl"] .figure-item:last-child { border-left: none; }
+
+.figure-num {
+  font-size: clamp(44px, 5.5vw, 64px); font-weight: 800;
+  color: var(--teal); line-height: 1; margin-bottom: 12px; letter-spacing: -1px;
+}
+.figure-lbl { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); line-height: 1.4; }
+html[lang="ar"] .figure-lbl { font-family: 'Cairo', sans-serif; font-size: 14px; }
+.figure-sub { font-family: 'Cairo', sans-serif; font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+
+.contact-row {
+  display: flex; align-items: flex-start;
+  gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--border);
+}
+.contact-row:first-child { border-top: 1px solid var(--border); }
+
+.ci-icon {
+  width: 44px; height: 44px;
+  background: rgba(39,184,153,0.07);
+  border: 1px solid rgba(39,184,153,0.15);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.ci-icon svg { width: 20px; height: 20px; color: var(--teal-dk); }
+.contact-row:hover .ci-icon { background: rgba(39,184,153,0.14); border-color: rgba(39,184,153,0.28); }
+
+.ci-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; color: var(--teal);
+  text-transform: uppercase; margin-bottom: 4px;
+}
+html[lang="ar"] .ci-label { letter-spacing: 0; font-family: 'Cairo', sans-serif; font-size: 11px; }
+.ci-value { font-size: 15px; color: var(--charcoal); font-weight: 500; }
+html[lang="ar"] .ci-value { font-family: 'Cairo', sans-serif; font-size: 16px; }
+.ci-value a { color: var(--teal-dk); transition: color 0.2s; }
+.ci-value a:hover { color: var(--navy); }
+.ci-sub { font-size: 12px; color: var(--grey-lt); margin-top: 2px; }
+html[lang="ar"] .ci-sub { font-family: 'Cairo', sans-serif; }
+
+.contact-note { font-size: 13px; color: var(--grey-lt); margin-top: 24px; line-height: 1.7; }
+html[lang="ar"] .contact-note { font-family: 'Cairo', sans-serif; font-size: 14px; }
+
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: var(--white);
+  font-size: 13px; font-weight: 600;
+  padding: 14px 30px; border-radius: var(--r);
+  margin-top: 30px;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+html[lang="ar"] .btn-wa { font-family: 'Cairo', sans-serif; }
+.btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(37,211,102,0.4); }
+
+.contact-visual {
+  background: linear-gradient(135deg, var(--offwhite) 0%, #EAF4F2 100%);
+  border: 1px solid var(--border); border-radius: 16px;
+  padding: 48px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 340px; text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.contact-visual-heart { width: 80px; height: auto; margin: 0 auto 20px; }
+.contact-visual h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+html[lang="ar"] .contact-visual h3 { font-family: 'Cairo', sans-serif; }
+.contact-visual-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 22px;
+  color: var(--navy); margin-bottom: 8px;
+}
+.contact-visual p { font-size: 14px; color: var(--grey); line-height: 1.7; }
+html[lang="ar"] .contact-visual p { font-family: 'Cairo', sans-serif; }
+.parent-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 20px;
+  background: rgba(30,58,122,0.07);
+  border: 1px solid rgba(30,58,122,0.14);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--navy);
+}
+html[lang="ar"] .parent-badge { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 11px; text-transform: none; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+#footer { background: var(--navy-dk); padding: 64px 0 0; color: var(--white); }
+
+.footer-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px; flex-wrap: wrap;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+.footer-brand { max-width: 340px; }
+.footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  direction: ltr; margin-bottom: 16px;
+}
+.footer-heart { width: 38px; height: auto; flex-shrink: 0; }
+.footer-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: 20px;
+  color: var(--white); letter-spacing: -0.3px;
+}
+.footer-name-sub {
+  font-family: 'Raleway', sans-serif; font-weight: 500;
+  font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(39,184,153,0.6); margin-top: 2px;
+}
+.footer-name-ar { font-family: 'Cairo', sans-serif; font-weight: 800; font-size: 18px; color: var(--white); display: none; }
+.footer-name-ar-sub { font-family: 'Cairo', sans-serif; font-size: 9px; color: rgba(39,184,153,0.6); display: none; margin-top: 2px; }
+html[lang="ar"] .footer-name, html[lang="ar"] .footer-name-sub { display: none; }
+html[lang="ar"] .footer-name-ar, html[lang="ar"] .footer-name-ar-sub { display: block; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); font-style: italic; line-height: 1.6; }
+html[lang="ar"] .footer-tagline { font-family: 'Cairo', sans-serif; font-style: normal; font-size: 14px; }
+
+.footer-links-col h4 {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 20px;
+}
+html[lang="ar"] .footer-links-col h4 { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 12px; }
+.footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links-col a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+html[lang="ar"] .footer-links-col a { font-family: 'Cairo', sans-serif; font-size: 14px; }
+.footer-links-col a:hover { color: var(--teal); }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 20px 0; flex-wrap: wrap;
+}
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+html[lang="ar"] .footer-copy { font-family: 'Cairo', sans-serif; }
+.footer-cr { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+.disclaimer {
+  background: rgba(0,0,0,0.2); padding: 16px 24px; text-align: center;
+  font-size: 11px; color: rgba(255,255,255,0.28); line-height: 1.65;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+html[lang="ar"] .disclaimer { font-family: 'Cairo', sans-serif; font-size: 12px; }
+
+@media (max-width: 767px) {
+  .footer-top { flex-direction: column; gap: 36px; }
+  .footer-brand { max-width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ══════════════════════════════════════════
+   LANG HELPERS
+══════════════════════════════════════════ */
+.en   { display: block; }
+.ar   { display: none; }
+html[lang="ar"] .en { display: none; }
+html[lang="ar"] .ar { display: block; }
+.en-i { display: inline; }
+.ar-i { display: none; }
+html[lang="ar"] .en-i { display: none; }
+html[lang="ar"] .ar-i { display: inline; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .figures-row { grid-template-columns: repeat(2, 1fr); }
+  .figure-item:nth-child(2) { border-right: none; }
+  html[dir="rtl"] .figure-item:nth-child(2) { border-left: none; }
+  .figure-item:nth-child(1),
+  .figure-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-visual { display: none; }
+}
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .section { padding: 72px 0; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .hero-headline { font-size: 34px; }
+  .figure-item { padding: 44px 16px; }
+}
+@media (max-width: 420px) { .why-grid { grid-template-columns: 1fr; } }
+
+/* ══════════════════════════════════════════
+   SERVICES SECTION
+══════════════════════════════════════════ */
+#services { padding: 0; }
+
+.services-photo-band {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.services-photo-band img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+.services-photo-band-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(9,18,40,0.55) 0%, rgba(9,18,40,0.80) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--pad-x);
+}
+
+.services-band-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.services-band-eyebrow::before,
+.services-band-eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1.5px;
+  background: var(--teal);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+html[lang="ar"] .services-band-eyebrow {
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0;
+  flex-direction: row-reverse;
+}
+
+.services-band-heading {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+html[lang="ar"] .services-band-heading {
+  font-family: 'Cairo', sans-serif;
+  font-size: clamp(24px, 2.8vw, 32px);
+  letter-spacing: 0;
+}
+
+.services-cards-body {
+  background: var(--offwhite);
+  padding: 64px 0 80px;
+}
+
+.svc-tabs-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:36px;flex-wrap:wrap}
+.svc-tab-btn{background:none;border:none;padding:14px 28px;font-family:'Raleway',sans-serif;font-size:13px;font-weight:600;color:var(--grey);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;letter-spacing:.3px}
+html[lang="ar"] .svc-tab-btn{font-family:'Cairo',sans-serif;font-size:14px;letter-spacing:0}
+.svc-tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+.svc-tab-btn:hover{color:var(--navy)}
+.svc-tab-panel{display:none}
+.svc-tab-panel.active{display:block}
+.svc-corporate-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.svc-corporate-card{background:var(--white);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:8px;padding:32px 28px}
+.svc-corporate-card h4{font-size:17px;font-weight:700;color:var(--navy);margin:0 0 10px}
+html[lang="ar"] .svc-corporate-card h4{font-family:'Cairo',sans-serif}
+.svc-corporate-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.svc-corporate-card li{font-size:14px;color:var(--charcoal);padding-left:16px;position:relative;line-height:1.5}
+.svc-corporate-card li::before{content:'·';color:var(--teal);position:absolute;left:0;font-weight:700}
+html[lang="ar"] .svc-corporate-card li{padding-left:0;padding-right:16px}
+html[lang="ar"] .svc-corporate-card li::before{left:auto;right:0}
+@media(max-width:767px){.svc-corporate-grid{grid-template-columns:1fr}}
+.coverage-section{padding:80px 0;background:var(--navy)}
+.coverage-heading{color:var(--white)}
+.coverage-subtitle{color:rgba(255,255,255,.7);font-size:15px;margin-top:8px;margin-bottom:48px;max-width:600px;line-height:1.7}
+html[lang="ar"] .coverage-subtitle{font-family:'Cairo',sans-serif}
+.coverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.coverage-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-top:3px solid var(--teal);border-radius:8px;padding:24px 20px}
+.coverage-card.hq{border-top-color:var(--gold)}
+.coverage-region{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.coverage-card.hq .coverage-region{color:var(--gold)}
+html[lang="ar"] .coverage-region{font-family:'Cairo',sans-serif;letter-spacing:0;font-size:11px}
+.coverage-cities{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.coverage-cities li{font-size:12px;color:rgba(255,255,255,.65);padding-left:12px;position:relative;line-height:1.4}
+.coverage-cities li::before{content:'·';position:absolute;left:0;color:var(--teal)}
+html[lang="ar"] .coverage-cities li{padding-left:0;padding-right:12px;font-family:'Cairo',sans-serif}
+html[lang="ar"] .coverage-cities li::before{left:auto;right:0}
+html[lang="ar"] .coverage-region{font-family:'Cairo',sans-serif}
+@media(max-width:1200px){.coverage-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:767px){.coverage-grid{grid-template-columns:1fr}}
+.team-section{padding:80px 0;background:var(--offwhite)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px 24px;text-align:center;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s}
+.team-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.team-icon{width:56px;height:56px;border-radius:50%;background:rgba(27,77,62,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.team-icon svg{width:26px;height:26px;stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.team-role{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
+html[lang="ar"] .team-role{font-family:'Cairo',sans-serif}
+.team-desc{font-size:13px;color:var(--grey);line-height:1.65}
+html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
+@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){.team-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<header id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">
+      <img src="Assets/Logo_icon.png" alt="Medoor" class="nav-logo-icon">
+      <div>
+        <div class="nav-wordmark">medoor</div>
+        <div class="nav-wordmark-sub">Medical to Door</div>
+        <div class="nav-wordmark-ar">ميدور</div>
+        <span class="nav-wordmark-ar-sub">نأتيك بالرعاية</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about"><span class="en-i">About</span><span class="ar-i">عن الشركة</span></a>
+      <a href="#services"><span class="en-i">Services</span><span class="ar-i">خدماتنا</span></a>
+      <a href="#coverage"><span class="en-i">Coverage</span><span class="ar-i">التغطية</span></a>
+      <a href="#team"><span class="en-i">Team</span><span class="ar-i">فريقنا</span></a>
+      <a href="#mission-vision"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></a>
+      <a href="#contact"><span class="en-i">Contact</span><span class="ar-i">تواصل معنا</span></a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ar" onclick="setLang('ar')">AR</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" onclick="toggleMenu()"><span class="en-i">About</span><span class="ar-i">عن الشركة</span></a>
+    <a href="#services" onclick="toggleMenu()"><span class="en-i">Services</span><span class="ar-i">خدماتنا</span></a>
+    <a href="#coverage" onclick="toggleMenu()"><span class="en-i">Coverage</span><span class="ar-i">التغطية</span></a>
+    <a href="#team" onclick="toggleMenu()"><span class="en-i">Team</span><span class="ar-i">فريقنا</span></a>
+    <a href="#mission-vision" onclick="toggleMenu()"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></a>
+    <a href="#contact" onclick="toggleMenu()"><span class="en-i">Contact</span><span class="ar-i">تواصل معنا</span></a>
+    <div class="mobile-lang">
+      <button id="m-btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="m-btn-ar" onclick="setLang('ar')">AR</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" style="background-image:url('Assets/Compassionate Home Blood Pressure Check.png');background-size:cover;background-position:center 30%;">
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <img src="Assets/Medoor_Logo.png" alt="medoor" class="hero-logo-full">
+    </div>
+
+    <div class="hero-badge">
+      <span class="en-i">Medical to Door</span>
+      <span class="ar-i">نأتيك بالرعاية</span>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="en">Compassionate Care,<br><em>Delivered to Your Door.</em></span>
+      <span class="ar">رعاية إنسانية متخصصة،<br><em>تصل إلى بابك.</em></span>
+    </h1>
+
+    <p class="hero-sub">
+      <span class="en">Medoor brings professional nursing, therapy, and clinical care directly to patients across Saudi Arabia — ensuring comfort, dignity, and clinical excellence in every home visit.</span>
+      <span class="ar">تقدم ميدور خدمات التمريض والعلاج والرعاية الطبية مباشرةً إلى المرضى في جميع أنحاء المملكة — لضمان الراحة والكرامة والتميز الطبي في كل زيارة منزلية.</span>
+    </p>
+
+    <a href="#services" class="hero-cta">
+      <span class="en-i">Explore Our Services</span>
+      <span class="ar-i">استعرض خدماتنا</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section bg-white">
+  <div class="container">
+    <div style="display:flex;gap:40px;align-items:stretch;">
+      <div style="flex:0 0 46%;border-radius:10px;overflow:hidden;position:relative;min-height:420px;">
+        <img src="Assets/Warm Arabic Living Room Consultation.png" alt="Home healthcare consultation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% center;display:block;">
+      </div>
+      <div class="about-body" style="flex:1;">
+      <p class="eyebrow"><span class="en-i">About Medoor</span><span class="ar-i">عن ميدور</span></p>
+      <h2 class="sec-heading">
+        <span class="en">Professional Home Healthcare<br>Across Saudi Arabia</span>
+        <span class="ar">رعاية صحية منزلية متخصصة<br>في جميع أنحاء المملكة</span>
+      </h2>
+      <div class="teal-bar"></div>
+      <p>
+        <span class="en">Medoor is a home healthcare company specialized in providing professional medical care services within the comfort of patients' homes. Operating under Alinaya Alrafia Medical Company, we focus on delivering personalized and compassionate healthcare solutions that support patients' well-being, recovery, and daily medical needs.</span>
+        <span class="ar">ميدور خدمة متخصصة في الرعاية الصحية المنزلية ضمن شركة العناية الرفيعة الطبية، تُقدِّم خدماتها للمرضى في منازلهم بكفاءة مهنية عالية وبما يتوافق مع متطلبات الترخيص والأنظمة الصحية في المملكة.</span>
+      </p>
+      <p>
+        <span class="en">Through a dedicated team of licensed nurses, physiotherapists, and qualified clinicians, Medoor makes quality medical care more accessible, convenient, and patient-centered. Our services reflect trust, comfort, and a continuous commitment to improving the home healthcare experience for individuals and families across the Kingdom.</span>
+        <span class="ar">يعمل فريقنا من الممرضين والمعالجين والأطباء المرخصين على تقديم رعاية صحية منزلية متكاملة تضع المريض في قلب كل خطوة — من التقييم السريري إلى المتابعة وتنسيق الرعاية.</span>
+      </p>
+      <p>
+        <span class="en">Founded in alignment with Saudi Vision 2030's healthcare transformation goals, Medoor actively supports the national objective of expanding accessible, high-quality healthcare services beyond hospital walls — into homes, communities, and every corner of the Kingdom.</span>
+        <span class="ar">تنطلق ميدور من التزامها بمستهدفات رؤية المملكة 2030 للتحول في القطاع الصحي، إذ تسهم في توسيع نطاق الوصول إلى الرعاية الجيدة خارج أسوار المستشفيات، وتجعل الخدمة الطبية المتخصصة في متناول الأفراد والأسر.</span>
+      </p>
+      <div class="about-callout">
+        <p>
+          <span class="en">A proud subsidiary of Alinaya Alrafia Medical Company — we care at your door.</span>
+          <span class="ar">جزء من شركة العناية الرفيعة الطبية — نهتم بك حتى بابك.</span>
+        </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="services-photo-band">
+    <img src="Assets/Healthcare Team in Riyadh at Sunset.png" alt="Medoor professional home healthcare team">
+    <div class="services-photo-band-overlay">
+      <p class="services-band-eyebrow">
+        <span class="en-i">What We Offer</span><span class="ar-i">ما نقدمه</span>
+      </p>
+      <div class="services-band-heading">
+        <span class="en">Our Home Healthcare Services</span>
+        <span class="ar">خدماتنا الصحية المنزلية</span>
+      </div>
+    </div>
+  </div>
+  <div class="services-cards-body">
+    <div class="container">
+      <nav class="svc-tabs-nav" role="tablist">
+        <button class="svc-tab-btn active" role="tab" onclick="showSvcTab(this,'tab-primary')"><span class="en-i">Primary Care</span><span class="ar-i">الرعاية الأولية</span></button>
+        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-specialty')"><span class="en-i">Specialty Care</span><span class="ar-i">الرعاية التخصصية</span></button>
+        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-imaging')"><span class="en-i">Diagnostic Imaging</span><span class="ar-i">التصوير التشخيصي</span></button>
+        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-corporate')"><span class="en-i">Corporate</span><span class="ar-i">الشركات والمنشآت</span></button>
+      </nav>
+
+      <div id="tab-primary" class="svc-tab-panel active">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="svc-name"><span class="en-i">Doctor Visits</span><span class="ar-i">زيارات طبية منزلية</span></div>
+            <div class="svc-desc"><span class="en">Licensed physicians visit patients at home for consultations, diagnosis, prescription, and medical follow-up.</span><span class="ar">أطباء مرخصون يزورون المرضى في منازلهم للفحص والتشخيص والوصف الطبي والمتابعة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Licensed Physicians</span><span class="ar-i">أطباء مرخصون</span></span><span class="svc-tag"><span class="en-i">Home Visits</span><span class="ar-i">زيارات منزلية</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="svc-name"><span class="en-i">Nursing Service</span><span class="ar-i">خدمات التمريض</span></div>
+            <div class="svc-desc"><span class="en">Wound care, IV therapy, medication administration as prescribed, and vital sign monitoring by licensed nurses at the patient's home.</span><span class="ar">العناية بالجروح والعلاج الوريدي وإعطاء الأدوية ومتابعة العلامات الحيوية من قِبل ممرضين مرخصين في المنزل.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Licensed Nurses</span><span class="ar-i">ممرضون مرخصون</span></span><span class="svc-tag"><span class="en-i">24/7 Available</span><span class="ar-i">متاح 24/7</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="svc-name"><span class="en-i">Vaccination Service</span><span class="ar-i">خدمة التطعيم</span></div>
+            <div class="svc-desc"><span class="en">Scheduled and on-demand vaccination at home for all ages — flu shots, travel vaccines, childhood immunisations, and workplace vaccination drives.</span><span class="ar">التطعيم المنزلي المبرمج وعند الطلب لجميع الأعمار — الإنفلونزا والسفر وتطعيمات الأطفال وحملات التطعيم لبيئة العمل.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">All Ages</span><span class="ar-i">جميع الأعمار</span></span><span class="svc-tag"><span class="en-i">On-Demand</span><span class="ar-i">عند الطلب</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></div>
+            <div class="svc-name"><span class="en-i">Laboratory Service</span><span class="ar-i">الخدمات المختبرية</span></div>
+            <div class="svc-desc"><span class="en">Home sample collection for blood tests, urinalysis, cultures, and more — processed by accredited labs with results delivered digitally.</span><span class="ar">أخذ عينات منزلية لفحوصات الدم والبول والمزارع وغيرها — تُحلَّل في مختبرات معتمدة وتُرسَل النتائج رقمياً.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Home Collection</span><span class="ar-i">أخذ عينات منزلي</span></span><span class="svc-tag"><span class="en-i">Digital Results</span><span class="ar-i">نتائج رقمية</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10"/></svg></div>
+            <div class="svc-name"><span class="en-i">Emergency Ambulance</span><span class="ar-i">سيارة الإسعاف الطارئة</span></div>
+            <div class="svc-desc"><span class="en">Rapid-response emergency ambulance staffed by paramedics and equipped for critical care — available 24/7 for medical emergencies.</span><span class="ar">إسعاف طارئ سريع الاستجابة بطاقم من المسعفين المدربين ومجهز للرعاية الحرجة — متاح 24/7 لحالات الطوارئ الطبية.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">24/7 Response</span><span class="ar-i">استجابة 24/7</span></span><span class="svc-tag"><span class="en-i">Paramedic Crew</span><span class="ar-i">طاقم إسعاف</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div class="svc-name"><span class="en-i">Non-Emergency Ambulance</span><span class="ar-i">سيارة الإسعاف غير الطارئة</span></div>
+            <div class="svc-desc"><span class="en">Safe, comfortable patient transport for scheduled appointments, hospital transfers, dialysis runs, and medical facility visits.</span><span class="ar">نقل مريح وآمن للمرضى للمواعيد المبرمجة والنقل بين المستشفيات وجلسات الغسيل والزيارات الطبية.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Patient Transport</span><span class="ar-i">نقل المرضى</span></span><span class="svc-tag"><span class="en-i">Scheduled Trips</span><span class="ar-i">رحلات مبرمجة</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+            <div class="svc-name"><span class="en-i">Physical Therapy</span><span class="ar-i">العلاج الطبيعي</span></div>
+            <div class="svc-desc"><span class="en">Certified physiotherapists delivering hands-on treatment at home — manual therapy, therapeutic exercises, and pain management.</span><span class="ar">معالجون طبيعيون معتمدون يقدمون العلاج في المنزل — علاج يدوي وتمارين علاجية وإدارة الألم.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Certified PTs</span><span class="ar-i">معالجون معتمدون</span></span><span class="svc-tag"><span class="en-i">Home Sessions</span><span class="ar-i">جلسات منزلية</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="svc-name"><span class="en-i">Rehabilitation Programs</span><span class="ar-i">برامج إعادة التأهيل</span></div>
+            <div class="svc-desc"><span class="en">Structured multi-session rehabilitation plans for post-surgical recovery, stroke, orthopaedic, and neurological conditions.</span><span class="ar">برامج إعادة تأهيل متعددة الجلسات لحالات ما بعد الجراحة والسكتة الدماغية والعظام والأعصاب.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Structured Plans</span><span class="ar-i">خطط منظمة</span></span><span class="svc-tag"><span class="en-i">Multi-Condition</span><span class="ar-i">متعدد الحالات</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="svc-name"><span class="en-i">Diabetes Management</span><span class="ar-i">إدارة السكري</span></div>
+            <div class="svc-desc"><span class="en">Comprehensive home-based diabetes care — blood glucose monitoring, insulin management, dietary guidance, and ongoing follow-up.</span><span class="ar">رعاية السكري الشاملة في المنزل — متابعة السكر في الدم وإدارة الأنسولين والإرشاد الغذائي والمتابعة المستمرة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Glucose Monitoring</span><span class="ar-i">متابعة السكر</span></span><span class="svc-tag"><span class="en-i">Dietary Support</span><span class="ar-i">دعم غذائي</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="svc-name"><span class="en-i">Pregnancy Program</span><span class="ar-i">برنامج الحمل</span></div>
+            <div class="svc-desc"><span class="en">Home healthcare support throughout pregnancy — antenatal monitoring, blood pressure checks, gestational diabetes screening, and postnatal care.</span><span class="ar">دعم صحي منزلي طوال فترة الحمل — متابعة ما قبل الولادة وفحص ضغط الدم وسكر الحمل ورعاية ما بعد الولادة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Antenatal Care</span><span class="ar-i">رعاية ما قبل الولادة</span></span><span class="svc-tag"><span class="en-i">Postnatal</span><span class="ar-i">ما بعد الولادة</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="svc-name"><span class="en-i">Employment Medical Test</span><span class="ar-i">الفحص الطبي للتوظيف</span></div>
+            <div class="svc-desc"><span class="en">Pre-employment medical examinations at home or on-site — blood tests, physical assessment, and health certification for new hires and Iqama renewals.</span><span class="ar">فحوصات طبية للتوظيف في المنزل أو في موقع العمل — تحاليل الدم والفحص الجسدي والشهادة الصحية للموظفين الجدد وتجديد الإقامة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Pre-Employment</span><span class="ar-i">ما قبل التوظيف</span></span><span class="svc-tag"><span class="en-i">Certified Reports</span><span class="ar-i">تقارير معتمدة</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-specialty" class="svc-tab-panel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+            <div class="svc-name"><span class="en-i">Hospital at Home</span><span class="ar-i">المستشفى في المنزل</span></div>
+            <div class="svc-desc"><span class="en">Acute care services at home — IV infusions, clinical monitoring, specialist consultations, and daily nursing rounds.</span><span class="ar">رعاية حادة في المنزل — تسريبات وريدية ومراقبة سريرية واستشارات متخصصة وجولات تمريض يومية.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Acute Care</span><span class="ar-i">رعاية حادة</span></span><span class="svc-tag"><span class="en-i">Daily Rounds</span><span class="ar-i">جولات يومية</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 6v4l3 3"/></svg></div>
+            <div class="svc-name"><span class="en-i">Wellness Program</span><span class="ar-i">برنامج العافية</span></div>
+            <div class="svc-desc"><span class="en">Personalised wellness plans covering nutrition, physical activity, mental wellbeing, and preventive screenings.</span><span class="ar">خطط عافية مخصصة تشمل التغذية والنشاط البدني والصحة النفسية والفحوصات الوقائية.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Preventive Health</span><span class="ar-i">الصحة الوقائية</span></span><span class="svc-tag"><span class="en-i">Personalised</span><span class="ar-i">مخصص</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="svc-name"><span class="en-i">Employment Checkup</span><span class="ar-i">الفحص الدوري لجهة العمل</span></div>
+            <div class="svc-desc"><span class="en">Periodic occupational health examinations — fitness-to-work assessments, health monitoring, and preventive screenings at your workplace.</span><span class="ar">فحوصات صحة مهنية دورية — تقييم اللياقة للعمل ومراقبة الصحة والفحوصات الوقائية في موقع عملك.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Occupational Health</span><span class="ar-i">الصحة المهنية</span></span><span class="svc-tag"><span class="en-i">On-Site</span><span class="ar-i">في الموقع</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="svc-name"><span class="en-i">Elderly Care</span><span class="ar-i">رعاية كبار السن</span></div>
+            <div class="svc-desc"><span class="en">Compassionate, dignified care for elderly patients — personal care assistance, chronic condition monitoring, falls prevention, and companionship programs.</span><span class="ar">رعاية رحيمة وكريمة لكبار السن — مساعدة شخصية ومتابعة الأمراض المزمنة والوقاية من السقوط وبرامج الرفقة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Daily Assistance</span><span class="ar-i">مساعدة يومية</span></span><span class="svc-tag"><span class="en-i">Chronic Monitoring</span><span class="ar-i">متابعة مزمنة</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+            <div class="svc-name"><span class="en-i">Population Health Management</span><span class="ar-i">إدارة الصحة المجتمعية</span></div>
+            <div class="svc-desc"><span class="en">Data-driven health programs for defined patient populations — chronic disease registries, preventive care outreach, and outcome reporting.</span><span class="ar">برامج صحية قائمة على البيانات لفئات محددة — سجلات الأمراض المزمنة والتوعية الوقائية وتقارير النتائج.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Community Health</span><span class="ar-i">الصحة المجتمعية</span></span><span class="svc-tag"><span class="en-i">Data Driven</span><span class="ar-i">قائم على البيانات</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="svc-name"><span class="en-i">Wound Care Program</span><span class="ar-i">برنامج العناية بالجروح</span></div>
+            <div class="svc-desc"><span class="en">Specialised wound management at home — acute wounds, chronic ulcers, post-surgical sites, and diabetic foot care by trained wound care nurses.</span><span class="ar">إدارة متخصصة للجروح في المنزل — الجروح الحادة والقرح المزمنة ومواقع ما بعد الجراحة وقدم السكري.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Wound Specialists</span><span class="ar-i">متخصصو الجروح</span></span><span class="svc-tag"><span class="en-i">Diabetic Foot</span><span class="ar-i">قدم السكري</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="svc-name"><span class="en-i">Extended Care Program</span><span class="ar-i">برنامج الرعاية الممتدة</span></div>
+            <div class="svc-desc"><span class="en">Long-term home healthcare for patients requiring ongoing clinical support — continuous nursing, regular physician visits, and care coordination.</span><span class="ar">رعاية صحية منزلية طويلة الأمد للمرضى الذين يحتاجون دعماً سريرياً مستمراً — تمريض مستمر وزيارات طبية منتظمة وتنسيق الرعاية.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Long-Term Care</span><span class="ar-i">رعاية طويلة الأمد</span></span><span class="svc-tag"><span class="en-i">Care Coordination</span><span class="ar-i">تنسيق الرعاية</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-imaging" class="svc-tab-panel">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="svc-name"><span class="en-i">X-Ray at Home</span><span class="ar-i">الأشعة السينية المنزلية</span></div>
+            <div class="svc-desc"><span class="en">Portable X-ray at the patient's home — chest, limb, and skeletal imaging by qualified radiology technicians with same-day digital reports.</span><span class="ar">أشعة سينية متنقلة في منزل المريض — تصوير الصدر والأطراف والعظام مع تقارير رقمية في اليوم ذاته.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Portable Unit</span><span class="ar-i">جهاز متنقل</span></span><span class="svc-tag"><span class="en-i">Same-Day Report</span><span class="ar-i">تقرير فوري</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="svc-name"><span class="en-i">Ultrasound at Home</span><span class="ar-i">الموجات فوق الصوتية المنزلية</span></div>
+            <div class="svc-desc"><span class="en">Diagnostic ultrasound at home for abdominal, pelvic, obstetric, and soft tissue imaging by certified sonographers.</span><span class="ar">تصوير بالموجات فوق الصوتية في المنزل للبطن والحوض والحمل والأنسجة الرخوة بواسطة فنيين معتمدين.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Obstetric</span><span class="ar-i">صدى الحمل</span></span><span class="svc-tag"><span class="en-i">Abdominal</span><span class="ar-i">صدى البطن</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="svc-name"><span class="en-i">ECG</span><span class="ar-i">تخطيط القلب الكهربائي</span></div>
+            <div class="svc-desc"><span class="en">12-lead ECG at home for cardiac assessment, arrhythmia screening, and pre-operative evaluation with digital report to referring physician.</span><span class="ar">تخطيط قلب 12 قناة في المنزل للتقييم القلبي وكشف اضطرابات النظم والتقييم قبل الجراحة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">12-Lead ECG</span><span class="ar-i">12 قناة</span></span><span class="svc-tag"><span class="en-i">Digital Report</span><span class="ar-i">تقرير رقمي</span></span></div>
+          </div>
+          <div class="service-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
+            <div class="svc-name"><span class="en-i">Stress ECG</span><span class="ar-i">تخطيط القلب تحت الجهد</span></div>
+            <div class="svc-desc"><span class="en">Exercise or pharmacological stress ECG to evaluate cardiac function — used to assess coronary artery disease and exercise tolerance.</span><span class="ar">تخطيط قلب بالجهد البدني أو الدوائي لتقييم وظيفة القلب — يُستخدم لتقييم أمراض الشرايين التاجية وتحمل التمرين.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Cardiac Stress Test</span><span class="ar-i">اختبار الجهد القلبي</span></span><span class="svc-tag"><span class="en-i">Coronary Assessment</span><span class="ar-i">تقييم الشرايين</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-corporate" class="svc-tab-panel">
+        <p style="font-size:15px;color:var(--charcoal);margin-bottom:28px;max-width:680px;line-height:1.7;">
+          <span class="en">Medoor partners with corporations, construction companies, industrial facilities, and event organisers to deliver on-site medical coverage, corporate clinic operations, and fleet ambulance services.</span>
+          <span class="ar">تتشارك ميدور مع الشركات والمقاولين والمنشآت الصناعية ومنظمي الفعاليات لتقديم التغطية الطبية الميدانية وتشغيل العيادات المؤسسية وخدمات الإسعاف.</span>
+        </p>
+        <div class="svc-corporate-grid">
+          <div class="svc-corporate-card">
+            <h4><span class="en-i">Clinic Operations</span><span class="ar-i">تشغيل العيادات المؤسسية</span></h4>
+            <ul>
+              <li><span class="en-i">First Aid Corporate Clinics</span><span class="ar-i">عيادات الإسعافات الأولية للشركات</span></li>
+              <li><span class="en-i">Emergency Clinic Onsite (Events &amp; Construction)</span><span class="ar-i">عيادة طوارئ ميدانية (الفعاليات والمنشآت)</span></li>
+              <li><span class="en-i">Full Clinic Operations / Primary Care Centers</span><span class="ar-i">تشغيل عيادة كاملة / مراكز الرعاية الأولية</span></li>
+            </ul>
+          </div>
+          <div class="svc-corporate-card">
+            <h4><span class="en-i">Ambulance Services</span><span class="ar-i">خدمات الإسعاف المؤسسية</span></h4>
+            <ul>
+              <li><span class="en-i">Long-Term Contracts — 24/7 Stationary Coverage</span><span class="ar-i">عقود طويلة الأمد — تغطية ثابتة 24/7</span></li>
+              <li><span class="en-i">Short-Term Event Coverage</span><span class="ar-i">تغطية قصيرة المدى للفعاليات</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- COVERAGE -->
+<section id="coverage" class="coverage-section">
+  <div class="container">
+    <p class="sec-eyebrow" style="color:rgba(39,184,153,.9)"><span class="en-i">Where We Operate</span><span class="ar-i">مناطق التغطية</span></p>
+    <h2 class="sec-heading coverage-heading"><span class="en">Our Coverage Across Saudi Arabia</span><span class="ar">تغطيتنا في أنحاء المملكة</span></h2>
+    <p class="coverage-subtitle"><span class="en">Medoor provides professional home healthcare services across three regions of the Kingdom — bringing care directly to patients wherever they are.</span><span class="ar">تقدم ميدور خدمات الرعاية الصحية المنزلية عبر ثلاث مناطق في المملكة — لتوصيل الرعاية إلى المرضى أينما كانوا.</span></p>
+    <div class="coverage-grid">
+      <div class="coverage-card hq">
+        <div class="coverage-region"><span class="en-i">Central Region — HQ</span><span class="ar-i">المنطقة الوسطى — المقر الرئيسي</span></div>
+        <ul class="coverage-cities">
+          <li><span class="en-i">Riyadh (HQ)</span><span class="ar-i">الرياض (المقر)</span></li>
+          <li><span class="en-i">Al-Kharj</span><span class="ar-i">الخرج</span></li>
+          <li><span class="en-i">Qassim</span><span class="ar-i">القصيم</span></li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <div class="coverage-region"><span class="en-i">Western Region</span><span class="ar-i">المنطقة الغربية</span></div>
+        <ul class="coverage-cities">
+          <li><span class="en-i">Jeddah</span><span class="ar-i">جدة</span></li>
+          <li><span class="en-i">Makkah</span><span class="ar-i">مكة المكرمة</span></li>
+          <li><span class="en-i">Taif</span><span class="ar-i">الطائف</span></li>
+          <li><span class="en-i">Madinah</span><span class="ar-i">المدينة المنورة</span></li>
+          <li><span class="en-i">Yanbu</span><span class="ar-i">ينبع</span></li>
+          <li><span class="en-i">Rabigh</span><span class="ar-i">رابغ</span></li>
+        </ul>
+      </div>
+      <div class="coverage-card">
+        <div class="coverage-region"><span class="en-i">Eastern Region</span><span class="ar-i">المنطقة الشرقية</span></div>
+        <ul class="coverage-cities">
+          <li><span class="en-i">Khobar</span><span class="ar-i">الخبر</span></li>
+          <li><span class="en-i">Dammam</span><span class="ar-i">الدمام</span></li>
+          <li><span class="en-i">Jubail</span><span class="ar-i">الجبيل</span></li>
+          <li><span class="en-i">Al-Hafouf</span><span class="ar-i">الأحساء / الهفوف</span></li>
+          <li><span class="en-i">Qatif</span><span class="ar-i">القطيف</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR TEAM -->
+<section id="team" class="team-section">
+  <div class="container">
+    <p class="sec-eyebrow"><span class="en-i">Our People</span><span class="ar-i">فريقنا</span></p>
+    <h2 class="sec-heading"><span class="en">The Team Behind Your Care</span><span class="ar">الفريق الذي يرعاك</span></h2>
+    <div class="sec-divider"></div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-role"><span class="en-i">Physicians</span><span class="ar-i">الأطباء</span></div>
+        <p class="team-desc"><span class="en">Licensed physicians dedicated to providing exceptional clinical care.</span><span class="ar">أطباء مرخصون ملتزمون بتقديم رعاية طبية استثنائية.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="team-role"><span class="en-i">Nurses</span><span class="ar-i">الممرضون والممرضات</span></div>
+        <p class="team-desc"><span class="en">Compassionate and experienced nursing professionals, committed to patient-centered care.</span><span class="ar">كوادر تمريضية رحيمة وذات خبرة، ملتزمة بتقديم رعاية تتمحور حول المريض.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v6m-4 4h8M8 17l4 4 4-4"/></svg></div>
+        <div class="team-role"><span class="en-i">Physiotherapists</span><span class="ar-i">المعالجون الطبيعيون</span></div>
+        <p class="team-desc"><span class="en">Qualified physiotherapists skilled in rehabilitation, supporting improved patient mobility and recovery.</span><span class="ar">معالجون طبيعيون مؤهلون متخصصون في إعادة التأهيل، يدعمون تحسين حركة المريض وتعافيه.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="team-role"><span class="en-i">Radiology Technicians</span><span class="ar-i">فنيو الأشعة</span></div>
+        <p class="team-desc"><span class="en">Highly trained specialists in medical imaging, essential for accurate diagnosis and treatment planning.</span><span class="ar">متخصصون مدربون تدريباً عالياً في التصوير الطبي، أساسيون للتشخيص الدقيق وتخطيط العلاج.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="team-role"><span class="en-i">Caregivers</span><span class="ar-i">مقدمو الرعاية</span></div>
+        <p class="team-desc"><span class="en">Dedicated caring professionals providing support and personal care to patients in their homes.</span><span class="ar">مختصون متفانون يقدمون الدعم والرعاية الشخصية للمرضى في منازلهم.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="team-role"><span class="en-i">Ambulance Team</span><span class="ar-i">فريق الإسعاف</span></div>
+        <p class="team-desc"><span class="en">Highly responsive and skilled emergency personnel, ready to provide medical coverage for events and sites.</span><span class="ar">كوادر طوارئ سريعة الاستجابة وماهرة، مستعدة لتقديم التغطية الطبية للفعاليات والمواقع.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="team-role"><span class="en-i">Health Educators</span><span class="ar-i">المثقفون الصحيون</span></div>
+        <p class="team-desc"><span class="en">Knowledgeable professionals supporting patients and communities in health promotion and disease prevention.</span><span class="ar">متخصصون ملمّون يدعمون المرضى والمجتمعات في تعزيز الصحة والوقاية من الأمراض.</span></p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="team-role"><span class="en-i">Support Staff</span><span class="ar-i">الطاقم الداعم</span></div>
+        <p class="team-desc"><span class="en">Operations around the clock — insurance teams, finance, IT technology developers, and more supporting every aspect of care delivery.</span><span class="ar">عمليات على مدار الساعة — فرق التأمين والمالية وتقنية المعلومات والمطورين، يدعمون جميع جوانب تقديم الرعاية.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MISSION & VISION ═══ -->
+<section id="mission-vision" class="section bg-white">
+  <div class="container">
+    <p class="eyebrow"><span class="en-i">Our Purpose</span><span class="ar-i">غايتنا</span></p>
+    <h2 class="sec-heading">
+      <span class="en">Mission & Vision</span>
+      <span class="ar">الرسالة والرؤية</span>
+    </h2>
+    <div class="teal-bar"></div>
+    <div style="display:flex;gap:36px;align-items:flex-start;margin-bottom:32px;">
+      <div style="flex:0 0 36%;border-radius:10px;overflow:hidden;max-height:320px;">
+        <img src="Assets/Compassionate Assistance in a Luxurious Living Room.png" alt="Home care" style="width:100%;height:320px;object-fit:cover;object-position:center 20%;display:block;">
+      </div>
+      <div style="flex:1;">
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="mv-label"><span class="en-i">Our Mission</span><span class="ar-i">رسالتنا</span></div>
+        <h3><span class="en">What We Do</span><span class="ar">ما نقوم به</span></h3>
+        <p>
+          <span class="en">To deliver professional, compassionate home healthcare services that bring clinical excellence to patients across Saudi Arabia — enabling recovery, independence, and a better quality of life within the comfort of home.</span>
+          <span class="ar">تقديم خدمات الرعاية الصحية المنزلية بمستوى مهني عالٍ وبما يتوافق مع الأطر التنظيمية المعتمدة — بهدف تعزيز الشفاء والاستقلالية وجودة حياة المرضى في بيئتهم المنزلية.</span>
+        </p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="mv-label"><span class="en-i">Our Vision</span><span class="ar-i">رؤيتنا</span></div>
+        <h3><span class="en">Where We're Going</span><span class="ar">وجهتنا</span></h3>
+        <p>
+          <span class="en">To be the most trusted home healthcare provider in Saudi Arabia — setting the standard for in-home medical care and making quality healthcare accessible to every patient, wherever they are.</span>
+          <span class="ar">أن تكون ميدور المرجع الموثوق في قطاع الرعاية الصحية المنزلية بالمملكة — برفع معايير الخدمة وضمان إتاحتها لمن يحتاجها أينما كان.</span>
+        </p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY MEDOOR ═══ -->
+<section class="section bg-navy">
+  <div class="container">
+    <p class="eyebrow"><span class="en-i">Why Choose Us</span><span class="ar-i">لماذا ميدور</span></p>
+    <h2 class="sec-heading"><span class="en">The Medoor Difference</span><span class="ar">ما يميز ميدور</span></h2>
+    <div class="teal-bar"></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="why-num">01</div>
+        <div class="why-name"><span class="en-i">Licensed Professionals</span><span class="ar-i">متخصصون مرخصون</span></div>
+        <div class="why-desc">
+          <span class="en">Every care provider is licensed, trained, and credentialed under Saudi health authority standards.</span>
+          <span class="ar">جميع مقدمي الرعاية مرخصون ومعتمدون وفق الأنظمة الصحية المعمول بها في المملكة العربية السعودية.</span>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="why-num">02</div>
+        <div class="why-name"><span class="en-i">Patient-Centered Care</span><span class="ar-i">رعاية تتمحور حول المريض</span></div>
+        <div class="why-desc">
+          <span class="en">Individualized care plans designed around each patient's unique clinical and personal needs.</span>
+          <span class="ar">خطط رعاية فردية مصممة وفق الاحتياجات السريرية والشخصية لكل مريض.</span>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="why-num">03</div>
+        <div class="why-name"><span class="en-i">Flexible Scheduling</span><span class="ar-i">جدولة مرنة</span></div>
+        <div class="why-desc">
+          <span class="en">Visit scheduling that fits the patient's routine, subject to availability.</span>
+          <span class="ar">جدولة الزيارات بما يتناسب مع روتين المريض، وفقاً للتوفر.</span>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="why-num">04</div>
+        <div class="why-name"><span class="en-i">Vision 2030 Aligned</span><span class="ar-i">متوافق مع رؤية 2030</span></div>
+        <div class="why-desc">
+          <span class="en">Contributing to Saudi healthcare transformation — expanding access and raising quality standards.</span>
+          <span class="ar">نسهم في تحقيق مستهدفات رؤية 2030 للتحول الصحي وتوسيع نطاق الوصول إلى الرعاية.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY FIGURES ═══ -->
+<div class="figures-band">
+  <div class="figures-row">
+    <div class="figure-item">
+      <div class="figure-num">—</div>
+      <div class="figure-lbl"><span class="en-i">Home Visits Completed</span><span class="ar-i">زيارة منزلية منجزة</span></div>
+      <div class="figure-sub en-i">زيارة منزلية منجزة</div>
+    </div>
+    <div class="figure-item">
+      <div class="figure-num">—</div>
+      <div class="figure-lbl"><span class="en-i">Healthcare Professionals</span><span class="ar-i">متخصص رعاية صحية</span></div>
+      <div class="figure-sub en-i">متخصص رعاية صحية</div>
+    </div>
+    <div class="figure-item">
+      <div class="figure-num">—</div>
+      <div class="figure-lbl"><span class="en-i">Patients Served</span><span class="ar-i">مريض مُخدَّم</span></div>
+      <div class="figure-sub en-i">مريض مُخدَّم</div>
+    </div>
+    <div class="figure-item">
+      <div class="figure-num">—</div>
+      <div class="figure-lbl"><span class="en-i">Cities Covered</span><span class="ar-i">مدينة مغطاة</span></div>
+      <div class="figure-sub en-i">مدينة مغطاة</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section bg-white">
+  <div class="container">
+    <p class="eyebrow"><span class="en-i">Get in Touch</span><span class="ar-i">تواصل معنا</span></p>
+    <h2 class="sec-heading"><span class="en">Contact Medoor</span><span class="ar">تواصل مع ميدور</span></h2>
+    <div class="teal-bar"></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-row">
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="ci-label"><span class="en-i">Address</span><span class="ar-i">العنوان</span></div>
+            <div class="ci-value" style="color:var(--grey-lt)"><span class="en">Leaders Tower 2, King Fahd Rd, Al Olaya</span><span class="ar">برج القادة 2، طريق الملك فهد، العليا</span></div>
+            <div class="ci-sub"><span class="en">Riyadh 13711, Saudi Arabia</span><span class="ar">الرياض 13711، المملكة العربية السعودية</span></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="ci-label"><span class="en-i">Email</span><span class="ar-i">البريد الإلكتروني</span></div>
+            <div class="ci-value"><a href="mailto:medoor@alinayamedical.com" style="color:var(--grey-lt)">medoor@alinayamedical.com</a></div>
+            <div class="ci-sub"><span class="en-i">Placeholder — update before launch</span><span class="ar-i">مؤقت — يُحدَّث قبل الإطلاق</span></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="ci-label"><span class="en-i">Working Hours</span><span class="ar-i">أوقات العمل</span></div>
+            <div class="ci-value"><span class="en">Sunday – Thursday</span><span class="ar">الأحد – الخميس</span></div>
+            <div class="ci-sub"><span class="en">9:00 AM – 5:00 PM · 24/7 patient support line available</span><span class="ar">9:00 ص – 5:00 م · خط دعم المرضى متاح على مدار الساعة</span></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="ci-label"><span class="en-i">Phone</span><span class="ar-i">الهاتف</span></div>
+            <div class="ci-value" style="color:var(--grey-lt)"><span class="en">055 121 0035 · 050 365 5665</span><span class="ar">055 121 0035 · 050 365 5665</span></div>
+          </div>
+        </div>
+        <a href="https://wa.me/966551210035" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span class="en-i">Chat on WhatsApp</span>
+          <span class="ar-i">تواصل عبر واتساب</span>
+        </a>
+        <p class="contact-note">
+          <span class="en">Medoor operates under Alinaya Alrafia Medical Company — your trusted healthcare group.</span>
+          <span class="ar">تعمل ميدور تحت مظلة شركة العناية الرفيعة الطبية — مجموعتك الصحية الموثوقة.</span>
+        </p>
+      </div>
+
+      <div class="contact-visual">
+        <img src="Assets/Logo_icon.png" alt="" class="contact-visual-heart">
+        <div class="contact-visual-name">medoor</div>
+        <p>
+          <span class="en">Compassionate care, delivered to your door — across Saudi Arabia.</span>
+          <span class="ar">رعاية إنسانية تصل إلى بابك — في جميع أنحاء المملكة.</span>
+        </p>
+        <div class="parent-badge">
+          <span class="en-i">Alinaya Alrafia Medical Company</span>
+          <span class="ar-i">شركة العناية الرفيعة الطبية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="Assets/Logo_icon.png" alt="" class="logo-icon-white footer-heart">
+          <div>
+            <div class="footer-name">medoor</div>
+            <div class="footer-name-sub">Medical to Door</div>
+            <div class="footer-name-ar">ميدور</div>
+            <div class="footer-name-ar-sub">نأتيك بالرعاية</div>
+          </div>
+        </div>
+        <div class="footer-tagline">
+          <span class="en-i">Compassionate care, delivered to your door.</span>
+          <span class="ar-i">رعاية إنسانية تصل إلى بابك.</span>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4><span class="en-i">Navigation</span><span class="ar-i">التنقل</span></h4>
+        <ul>
+          <li><a href="#about"><span class="en-i">About</span><span class="ar-i">عن الشركة</span></a></li>
+          <li><a href="#services"><span class="en-i">Services</span><span class="ar-i">خدماتنا</span></a></li>
+          <li><a href="#mission-vision"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></a></li>
+          <li><a href="#contact"><span class="en-i">Contact</span><span class="ar-i">تواصل معنا</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4><span class="en-i">Group</span><span class="ar-i">المجموعة</span></h4>
+        <ul>
+          <li><a href="https://alinayamedical.com/"><span class="en-i">Alinaya Medical Group</span><span class="ar-i">مجموعة العناية الرفيعة</span></a></li>
+          <li><a href="mailto:medoor@alinayamedical.com">medoor@alinayamedical.com</a></li>
+          <li><a href="https://wa.me/966551210035"><span class="en-i">WhatsApp</span><span class="ar-i">واتساب</span></a></li>
+          <li><span style="color:rgba(255,255,255,0.3);font-size:13px;"><span class="en-i">Riyadh, Saudi Arabia</span><span class="ar-i">الرياض، المملكة العربية السعودية</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">
+        <span class="en">© 2026 medoor. A subsidiary of Alinaya Alrafia Medical Company. All rights reserved.</span>
+        <span class="ar">© 2026 ميدور. جزء من شركة العناية الرفيعة الطبية. جميع الحقوق محفوظة.</span>
+      </span>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <span class="en">Medical Disclaimer: The information on this website is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Home healthcare services are provided by licensed professionals under clinical supervision. Always consult a qualified healthcare professional for any medical concerns.</span>
+    <span class="ar">إخلاء المسؤولية الطبية: المعلومات الواردة في هذا الموقع لأغراض معلوماتية عامة فقط، ولا تُمثِّل نصيحة طبية أو تشخيصاً أو علاجاً. جميع خدمات الرعاية الصحية المنزلية مشروطة بالتقييم السريري المسبق، ونطاق الاختصاص المهني، والترخيص المعتمد، والاشتراطات التنظيمية الصحية في المملكة العربية السعودية. تُقدَّم الخدمات من قِبل متخصصين مرخصين تحت الإشراف الطبي. استشر دائماً مختصاً طبياً مؤهلاً في شؤونك الصحية.</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  function setLang(lang) {
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+    ['btn-en','btn-ar','m-btn-en','m-btn-ar'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active', id.includes(lang));
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .mv-card, .why-card, .figure-item, .contact-row').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+function showSvcTab(btn, panelId) {
+  document.querySelectorAll('.svc-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.svc-tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</body>
+</html>
