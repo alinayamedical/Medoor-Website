@@ -8,6 +8,28 @@
 <meta property="og:title" content="medoor — Medical to Door">
 <meta property="og:description" content="Compassionate care, delivered to your door. Professional home healthcare across Saudi Arabia.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://medoor.alinayamedical.com/">
+<meta property="og:url" content="https://medoor.alinayamedical.com/">
+<meta property="og:image" content="https://medoor.alinayamedical.com/Assets/Logo_icon.png">
+<meta property="og:image:width" content="280">
+<meta property="og:image:height" content="280">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="medoor — Medical to Door">
+<meta name="twitter:description" content="Compassionate care, delivered to your door. Professional home healthcare across Saudi Arabia.">
+<meta name="twitter:image" content="https://medoor.alinayamedical.com/Assets/Logo_icon.png">
+<link rel="icon" href="Assets/Logo_icon.png" type="image/png">
+<link rel="apple-touch-icon" href="Assets/Logo_icon.png">
+<script>
+(function(){
+  try {
+    var l = localStorage.getItem('medoor-lang');
+    if (l === 'ar') {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+    }
+  } catch(_) {}
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Raleway:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +49,7 @@
   --grey-lt:   #9CA3AF;
   --border:    #E5E7EB;
   --border-dk: #D1D5DB;
+  --gold:      #C9A84C;
   --nav-h:     76px;
   --max-w:     1140px;
   --pad-x:     64px;
@@ -39,6 +62,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 3px; }
 body {
   font-family: 'Raleway', 'Arial', sans-serif;
   font-weight: 400;
@@ -46,6 +70,7 @@ body {
   background: var(--white);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 html[lang="ar"] body { font-family: 'Cairo', 'Arial', sans-serif; }
 img, svg { display: block; }
@@ -124,12 +149,12 @@ html[lang="ar"] .nav-wordmark-ar, html[lang="ar"] .nav-wordmark-ar-sub { display
 
 .nav-links {
   display: flex; align-items: center;
-  gap: 40px; flex: 1; justify-content: center;
+  gap: 28px; flex: 1; justify-content: center;
 }
 .nav-links a {
   font-size: 11.5px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase;
-  color: var(--grey-lt);
+  color: var(--charcoal);
   transition: color 0.2s;
   position: relative; white-space: nowrap;
 }
@@ -153,6 +178,7 @@ html[dir="rtl"] .nav-links a::after { transform-origin: right; }
   display: flex; align-items: center;
   border: 1.5px solid var(--border-dk);
   border-radius: var(--r); overflow: hidden; flex-shrink: 0;
+  white-space: nowrap;
 }
 .lang-toggle button {
   font-size: 11px; font-weight: 700;
@@ -185,7 +211,7 @@ html[dir="rtl"] .nav-links a::after { transform-origin: right; }
 .mobile-menu a {
   font-size: 12px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase;
-  color: var(--grey); padding: 13px 24px;
+  color: var(--charcoal); padding: 13px 24px;
   transition: color 0.2s, background 0.2s;
 }
 html[lang="ar"] .mobile-menu a { font-family: 'Cairo', sans-serif; letter-spacing: 0; text-transform: none; }
@@ -203,7 +229,7 @@ html[lang="ar"] .mobile-menu a { font-family: 'Cairo', sans-serif; letter-spacin
 }
 .mobile-lang button.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
-@media (max-width: 767px) {
+@media (max-width: 1100px) {
   .nav-links { display: none; }
   .lang-toggle { display: none; }
   .nav-hamburger { display: flex; }
@@ -842,9 +868,96 @@ html[lang="ar"] .team-role{font-family:'Cairo',sans-serif}
 html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
 @media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:767px){.team-grid{grid-template-columns:1fr}}
+
+/* ══════════════════════════════════════════
+   SKIP LINK
+══════════════════════════════════════════ */
+.skip-link {
+  position: absolute; top: -100%; left: 8px;
+  background: var(--navy); color: var(--white);
+  padding: 8px 16px; z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  font-size: 13px; font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; outline: 2px solid var(--teal); outline-offset: 2px; }
+html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px; }
+
+/* ══════════════════════════════════════════
+   SCROLL MARGIN (fixed header offset)
+══════════════════════════════════════════ */
+#about, #services, #coverage, #team, #mission-vision, #contact {
+  scroll-margin-top: var(--nav-h);
+}
+
+/* ══════════════════════════════════════════
+   ABOUT LAYOUT (replaces inline styles)
+══════════════════════════════════════════ */
+.about-layout { display: flex; gap: 40px; align-items: stretch; }
+.about-img-wrap {
+  flex: 0 0 46%; border-radius: 10px;
+  overflow: hidden; position: relative; min-height: 420px;
+}
+.about-img-wrap img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 40% center; display: block;
+}
+@media (max-width: 767px) {
+  .about-layout { flex-direction: column; }
+  .about-img-wrap { flex: none; width: 100%; min-height: 260px; }
+}
+
+/* ══════════════════════════════════════════
+   MISSION/VISION LAYOUT (replaces inline styles)
+══════════════════════════════════════════ */
+.mv-layout { display: flex; gap: 36px; align-items: flex-start; margin-bottom: 32px; }
+.mv-img-wrap {
+  flex: 0 0 36%; border-radius: 10px;
+  overflow: hidden; max-height: 320px;
+}
+.mv-img-wrap img {
+  width: 100%; height: 320px;
+  object-fit: cover; object-position: center 20%; display: block;
+}
+@media (max-width: 767px) {
+  .mv-layout { flex-direction: column; }
+  .mv-img-wrap { flex: none; width: 100%; max-height: 220px; }
+  .mv-img-wrap img { height: 220px; }
+}
+
+/* ══════════════════════════════════════════
+   SCROLL ANIMATIONS (resilient)
+══════════════════════════════════════════ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link"><span class="en-i">Skip to main content</span><span class="ar-i">انتقل إلى المحتوى الرئيسي</span></a>
 
 <!-- ═══ NAVBAR ═══ -->
 <header id="nav">
@@ -869,10 +982,10 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
     </nav>
 
     <div class="lang-toggle" role="group" aria-label="Language">
-      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button id="btn-ar" onclick="setLang('ar')">AR</button>
+      <button id="btn-en" class="active" aria-pressed="true" onclick="setLang('en')">EN</button>
+      <button id="btn-ar" aria-pressed="false" onclick="setLang('ar')">AR</button>
     </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -884,17 +997,18 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
     <a href="#mission-vision" onclick="toggleMenu()"><span class="en-i">Mission & Vision</span><span class="ar-i">الرسالة والرؤية</span></a>
     <a href="#contact" onclick="toggleMenu()"><span class="en-i">Contact</span><span class="ar-i">تواصل معنا</span></a>
     <div class="mobile-lang">
-      <button id="m-btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button id="m-btn-ar" onclick="setLang('ar')">AR</button>
+      <button id="m-btn-en" class="active" aria-pressed="true" onclick="setLang('en')">EN</button>
+      <button id="m-btn-ar" aria-pressed="false" onclick="setLang('ar')">AR</button>
     </div>
   </div>
 </header>
 
+<main id="main-content">
 <!-- ═══ HERO ═══ -->
-<section id="hero" style="background-image:url('Assets/Compassionate Home Blood Pressure Check.png');background-size:cover;background-position:center 30%;">
+<section id="hero" style="background-image:-webkit-image-set(url('Assets/Compassionate Home Blood Pressure Check.webp') 1x);background-image:image-set(url('Assets/Compassionate Home Blood Pressure Check.webp') type('image/webp'),url('Assets/Compassionate Home Blood Pressure Check.png') type('image/png'));background-size:cover;background-position:center 30%;">
   <div class="hero-inner">
     <div class="hero-logo-wrap">
-      <img src="Assets/Medoor_Logo.png" alt="medoor" class="hero-logo-full">
+      <img src="Assets/Medoor_Logo.png" alt="medoor" class="hero-logo-full" loading="eager" width="280" height="80">
     </div>
 
     <div class="hero-badge">
@@ -925,11 +1039,14 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
 <!-- ═══ ABOUT ═══ -->
 <section id="about" class="section bg-white">
   <div class="container">
-    <div style="display:flex;gap:40px;align-items:stretch;">
-      <div style="flex:0 0 46%;border-radius:10px;overflow:hidden;position:relative;min-height:420px;">
-        <img src="Assets/Warm Arabic Living Room Consultation.png" alt="Home healthcare consultation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% center;display:block;">
+    <div class="about-layout">
+      <div class="about-img-wrap">
+        <picture>
+          <source srcset="Assets/Warm Arabic Living Room Consultation.webp" type="image/webp">
+          <img src="Assets/Warm Arabic Living Room Consultation.png" alt="Home healthcare consultation" loading="lazy" width="600" height="420">
+        </picture>
       </div>
-      <div class="about-body" style="flex:1;">
+      <div class="about-body">
       <p class="eyebrow"><span class="en-i">About Medoor</span><span class="ar-i">عن ميدور</span></p>
       <h2 class="sec-heading">
         <span class="en">Professional Home Healthcare<br>Across Saudi Arabia</span>
@@ -962,7 +1079,10 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
 <!-- ═══ SERVICES ═══ -->
 <section id="services">
   <div class="services-photo-band">
-    <img src="Assets/Healthcare Team in Riyadh at Sunset.png" alt="Medoor professional home healthcare team">
+    <picture>
+      <source srcset="Assets/Healthcare Team in Riyadh at Sunset.webp" type="image/webp">
+      <img src="Assets/Healthcare Team in Riyadh at Sunset.png" alt="Medoor professional home healthcare team" loading="lazy" width="1200" height="340">
+    </picture>
     <div class="services-photo-band-overlay">
       <p class="services-band-eyebrow">
         <span class="en-i">What We Offer</span><span class="ar-i">ما نقدمه</span>
@@ -976,13 +1096,13 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
   <div class="services-cards-body">
     <div class="container">
       <nav class="svc-tabs-nav" role="tablist">
-        <button class="svc-tab-btn active" role="tab" onclick="showSvcTab(this,'tab-primary')"><span class="en-i">Primary Care</span><span class="ar-i">الرعاية الأولية</span></button>
-        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-specialty')"><span class="en-i">Specialty Care</span><span class="ar-i">الرعاية التخصصية</span></button>
-        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-imaging')"><span class="en-i">Diagnostic Imaging</span><span class="ar-i">التصوير التشخيصي</span></button>
-        <button class="svc-tab-btn" role="tab" onclick="showSvcTab(this,'tab-corporate')"><span class="en-i">Corporate</span><span class="ar-i">الشركات والمنشآت</span></button>
+        <button id="tab-btn-primary"   class="svc-tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-primary"   tabindex="0"  onclick="showSvcTab(this,'tab-primary')"><span class="en-i">Primary Care</span><span class="ar-i">الرعاية الأولية</span></button>
+        <button id="tab-btn-specialty" class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-specialty" tabindex="-1" onclick="showSvcTab(this,'tab-specialty')"><span class="en-i">Specialty Care</span><span class="ar-i">الرعاية التخصصية</span></button>
+        <button id="tab-btn-imaging"   class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-imaging"   tabindex="-1" onclick="showSvcTab(this,'tab-imaging')"><span class="en-i">Diagnostic Imaging</span><span class="ar-i">التصوير التشخيصي</span></button>
+        <button id="tab-btn-corporate" class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-corporate" tabindex="-1" onclick="showSvcTab(this,'tab-corporate')"><span class="en-i">Corporate</span><span class="ar-i">الشركات والمنشآت</span></button>
       </nav>
 
-      <div id="tab-primary" class="svc-tab-panel active">
+      <div id="tab-primary" class="svc-tab-panel active" role="tabpanel" aria-labelledby="tab-btn-primary" tabindex="0">
         <div class="services-grid">
           <div class="service-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
@@ -1053,7 +1173,7 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
         </div>
       </div>
 
-      <div id="tab-specialty" class="svc-tab-panel">
+      <div id="tab-specialty" class="svc-tab-panel" role="tabpanel" aria-labelledby="tab-btn-specialty" tabindex="0">
         <div class="services-grid">
           <div class="service-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
@@ -1100,7 +1220,7 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
         </div>
       </div>
 
-      <div id="tab-imaging" class="svc-tab-panel">
+      <div id="tab-imaging" class="svc-tab-panel" role="tabpanel" aria-labelledby="tab-btn-imaging" tabindex="0">
         <div class="services-grid">
           <div class="service-card">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
@@ -1129,7 +1249,7 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
         </div>
       </div>
 
-      <div id="tab-corporate" class="svc-tab-panel">
+      <div id="tab-corporate" class="svc-tab-panel" role="tabpanel" aria-labelledby="tab-btn-corporate" tabindex="0">
         <p style="font-size:15px;color:var(--charcoal);margin-bottom:28px;max-width:680px;line-height:1.7;">
           <span class="en">Medoor partners with corporations, construction companies, industrial facilities, and event organisers to deliver on-site medical coverage, corporate clinic operations, and fleet ambulance services.</span>
           <span class="ar">تتشارك ميدور مع الشركات والمقاولين والمنشآت الصناعية ومنظمي الفعاليات لتقديم التغطية الطبية الميدانية وتشغيل العيادات المؤسسية وخدمات الإسعاف.</span>
@@ -1258,9 +1378,12 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
       <span class="ar">الرسالة والرؤية</span>
     </h2>
     <div class="teal-bar"></div>
-    <div style="display:flex;gap:36px;align-items:flex-start;margin-bottom:32px;">
-      <div style="flex:0 0 36%;border-radius:10px;overflow:hidden;max-height:320px;">
-        <img src="Assets/Compassionate Assistance in a Luxurious Living Room.png" alt="Home care" style="width:100%;height:320px;object-fit:cover;object-position:center 20%;display:block;">
+    <div class="mv-layout">
+      <div class="mv-img-wrap">
+        <picture>
+          <source srcset="Assets/Compassionate Assistance in a Luxurious Living Room.webp" type="image/webp">
+          <img src="Assets/Compassionate Assistance in a Luxurious Living Room.png" alt="Home care" loading="lazy" width="400" height="320">
+        </picture>
       </div>
       <div style="flex:1;">
     <div class="mv-grid">
@@ -1339,32 +1462,6 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
   </div>
 </section>
 
-<!-- ═══ KEY FIGURES ═══ -->
-<div class="figures-band">
-  <div class="figures-row">
-    <div class="figure-item">
-      <div class="figure-num">—</div>
-      <div class="figure-lbl"><span class="en-i">Home Visits Completed</span><span class="ar-i">زيارة منزلية منجزة</span></div>
-      <div class="figure-sub en-i">زيارة منزلية منجزة</div>
-    </div>
-    <div class="figure-item">
-      <div class="figure-num">—</div>
-      <div class="figure-lbl"><span class="en-i">Healthcare Professionals</span><span class="ar-i">متخصص رعاية صحية</span></div>
-      <div class="figure-sub en-i">متخصص رعاية صحية</div>
-    </div>
-    <div class="figure-item">
-      <div class="figure-num">—</div>
-      <div class="figure-lbl"><span class="en-i">Patients Served</span><span class="ar-i">مريض مُخدَّم</span></div>
-      <div class="figure-sub en-i">مريض مُخدَّم</div>
-    </div>
-    <div class="figure-item">
-      <div class="figure-num">—</div>
-      <div class="figure-lbl"><span class="en-i">Cities Covered</span><span class="ar-i">مدينة مغطاة</span></div>
-      <div class="figure-sub en-i">مدينة مغطاة</div>
-    </div>
-  </div>
-</div>
-
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" class="section bg-white">
   <div class="container">
@@ -1377,7 +1474,7 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="ci-label"><span class="en-i">Address</span><span class="ar-i">العنوان</span></div>
-            <div class="ci-value" style="color:var(--grey-lt)"><span class="en">Leaders Tower 2, King Fahd Rd, Al Olaya</span><span class="ar">برج القادة 2، طريق الملك فهد، العليا</span></div>
+            <div class="ci-value"><span class="en">Leaders Tower 2, King Fahd Rd, Al Olaya</span><span class="ar">برج القادة 2، طريق الملك فهد، العليا</span></div>
             <div class="ci-sub"><span class="en">Riyadh 13711, Saudi Arabia</span><span class="ar">الرياض 13711، المملكة العربية السعودية</span></div>
           </div>
         </div>
@@ -1385,8 +1482,7 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="ci-label"><span class="en-i">Email</span><span class="ar-i">البريد الإلكتروني</span></div>
-            <div class="ci-value"><a href="mailto:medoor@alinayamedical.com" style="color:var(--grey-lt)">medoor@alinayamedical.com</a></div>
-            <div class="ci-sub"><span class="en-i">Placeholder — update before launch</span><span class="ar-i">مؤقت — يُحدَّث قبل الإطلاق</span></div>
+            <div class="ci-value"><a href="mailto:medoor@alinayamedical.com" dir="ltr">medoor@alinayamedical.com</a></div>
           </div>
         </div>
         <div class="contact-row">
@@ -1401,7 +1497,9 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="ci-label"><span class="en-i">Phone</span><span class="ar-i">الهاتف</span></div>
-            <div class="ci-value" style="color:var(--grey-lt)"><span class="en">055 121 0035 · 050 365 5665</span><span class="ar">055 121 0035 · 050 365 5665</span></div>
+            <div class="ci-value">
+              <a href="tel:+966551210035" dir="ltr">055 121 0035</a><span aria-hidden="true"> · </span><a href="tel:+966503655665" dir="ltr">050 365 5665</a>
+            </div>
           </div>
         </div>
         <a href="https://wa.me/966551210035" class="btn-wa">
@@ -1430,6 +1528,8 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ═══ FOOTER ═══ -->
 <footer id="footer">
@@ -1489,43 +1589,106 @@ html[lang="ar"] .team-desc{font-family:'Cairo',sans-serif;font-size:14px}
   }, { passive: true });
 
   function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobile-menu').classList.toggle('open');
+    const burger = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    const isOpen = menu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   }
 
-  function setLang(lang) {
-    const html = document.documentElement;
-    html.lang = lang;
-    html.dir  = lang === 'ar' ? 'rtl' : 'ltr';
-    ['btn-en','btn-ar','m-btn-en','m-btn-ar'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.toggle('active', id.includes(lang));
-    });
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.service-card, .mv-card, .why-card, .figure-item, .contact-row').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('mobile-menu').classList.contains('open')) {
+      toggleMenu();
+      document.getElementById('hamburger').focus();
+    }
   });
 
-function showSvcTab(btn, panelId) {
-  document.querySelectorAll('.svc-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.svc-tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
-}
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1100) {
+      var menu = document.getElementById('mobile-menu');
+      var burger = document.getElementById('hamburger');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  function setLang(lang) {
+    var html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    ['btn-en','btn-ar','m-btn-en','m-btn-ar'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        var isActive = id.includes(lang);
+        el.classList.toggle('active', isActive);
+        el.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      }
+    });
+    document.title = lang === 'ar'
+      ? 'ميدور — الرعاية الصحية المنزلية في المملكة العربية السعودية'
+      : 'medoor — Medical to Door | Home Healthcare Services, Saudi Arabia';
+    try { localStorage.setItem('medoor-lang', lang); } catch(_) {}
+  }
+
+  (function() {
+    var saved; try { saved = localStorage.getItem('medoor-lang'); } catch(_) {}
+    if (saved === 'en' || saved === 'ar') setLang(saved);
+  })();
+
+  function showSvcTab(btn, panelId) {
+    document.querySelectorAll('.svc-tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    document.querySelectorAll('.svc-tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    btn.setAttribute('tabindex', '0');
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  var tabNav = document.querySelector('.svc-tabs-nav');
+  if (tabNav) {
+    tabNav.addEventListener('keydown', function(e) {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.svc-tab-btn'));
+      var idx = tabs.indexOf(document.activeElement);
+      if (idx === -1) return;
+      var isRtl = document.documentElement.dir === 'rtl';
+      var next = -1;
+      if (e.key === (isRtl ? 'ArrowLeft' : 'ArrowRight')) next = (idx + 1) % tabs.length;
+      else if (e.key === (isRtl ? 'ArrowRight' : 'ArrowLeft')) next = (idx - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      if (next !== -1) { e.preventDefault(); tabs[next].focus(); tabs[next].click(); }
+    });
+  }
+
+  var animItems = document.querySelectorAll('.service-card, .mv-card, .why-card, .contact-row');
+  animItems.forEach(function(el) { el.classList.add('animate-on-scroll'); });
+
+  if (typeof IntersectionObserver !== 'undefined') {
+    try {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      animItems.forEach(function(el) { observer.observe(el); });
+    } catch(_) {
+      animItems.forEach(function(el) { el.classList.add('is-visible'); });
+    }
+  } else {
+    animItems.forEach(function(el) { el.classList.add('is-visible'); });
+  }
 </script>
 </body>
 </html>

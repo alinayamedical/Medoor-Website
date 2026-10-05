@@ -1,5 +1,8 @@
 *.pdf
 node_modules/
+package.json
+package-lock.json
+convert-webp.js
 .DS_Store
 Thumbs.db
 .vercel
