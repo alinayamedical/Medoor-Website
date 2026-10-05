@@ -1148,10 +1148,349 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
     transition: none !important;
   }
 }
+
+/* ══════════════════════════════════════
+   HERO — DUAL CTA + PHONE
+══════════════════════════════════════ */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+/* Fix #7: specific selector instead of !important */
+.hero-inner .hero-sub {
+  color: rgba(255, 255, 255, 0.55);
+}
+.hero-cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: var(--r);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+html[lang="ar"] .hero-cta-wa {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+.hero-cta-wa:hover {
+  background: #1ebe57;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+}
+.hero-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.45);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: var(--r);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+html[lang="ar"] .hero-cta-outline {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+.hero-cta-outline:hover {
+  border-color: var(--teal-lt);
+  background: rgba(62,205,178,0.08);
+  transform: translateY(-2px);
+}
+.hero-cta-outline svg { width: 16px; height: 16px; }
+.hero-phone {
+  margin-top: 4px;
+  font-size: 13px;
+}
+.hero-phone a {
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+.hero-phone a:hover { color: var(--teal-lt); }
+
+/* ══════════════════════════════════════
+   SERVICE CARD — ENQUIRE BUTTON
+══════════════════════════════════════ */
+.svc-enquire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid var(--teal);
+  border-radius: var(--r);
+  color: var(--teal-dk);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+html[lang="ar"] .svc-enquire-btn {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  font-size: 13px;
+  text-transform: none;
+}
+.svc-enquire-btn:hover {
+  background: var(--teal);
+  color: #fff;
+}
+.service-card { display: flex; flex-direction: column; }
+.svc-tags { margin-top: auto; }
+
+/* ══════════════════════════════════════
+   TAB COUNT BADGES
+══════════════════════════════════════ */
+.svc-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: 8px;
+  background: var(--border);
+  color: var(--grey);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+}
+html[dir="rtl"] .svc-tab-count { margin-left: 0; margin-right: 8px; }
+.svc-tab-btn.active .svc-tab-count {
+  background: rgba(39,184,153,0.15);
+  color: var(--teal-dk);
+}
+
+/* ══════════════════════════════════════
+   CITY ENQUIRY BAR
+══════════════════════════════════════ */
+.city-enquire-bar {
+  margin-top: 48px;
+  padding: 28px 32px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+}
+.city-enquire-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+html[lang="ar"] .city-enquire-label { font-family: 'Cairo', sans-serif; }
+.city-enquire-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 260px;
+  flex-wrap: wrap;
+}
+.city-select {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-dk);
+  border-radius: var(--r);
+  font-size: 14px;
+  color: var(--charcoal);
+  background: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.city-select:focus { outline: none; border-color: var(--teal); }
+html[lang="ar"] .city-select { font-family: 'Cairo', sans-serif; }
+.city-enquire-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: var(--r);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+html[lang="ar"] .city-enquire-cta { font-family: 'Cairo', sans-serif; }
+.city-enquire-cta:hover { background: #1ebe57; transform: translateY(-1px); }
+
+/* ══════════════════════════════════════
+   COVERAGE SECTION — CTA
+══════════════════════════════════════ */
+.coverage-cta-wrap { margin-top: 40px; text-align: center; }
+.btn-coverage-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--teal);
+  color: var(--navy-dk);
+  border-radius: var(--r);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(39,184,153,0.3);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+html[lang="ar"] .btn-coverage-cta {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  font-size: 14px;
+  text-transform: none;
+}
+.btn-coverage-cta:hover {
+  background: var(--teal-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39,184,153,0.4);
+}
+
+/* ══════════════════════════════════════
+   CONTACT — MAPS BUTTON
+══════════════════════════════════════ */
+.map-summary { margin-top: 10px; }
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: transparent;
+  border: 1.5px solid var(--border-dk);
+  border-radius: var(--r);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
+}
+html[lang="ar"] .btn-maps { font-family: 'Cairo', sans-serif; }
+.btn-maps:hover { background: rgba(30,58,122,0.05); border-color: var(--navy); }
+
+/* ══════════════════════════════════════
+   FLOATING QUICK-CONTACT BAR
+══════════════════════════════════════ */
+.quick-contact-bar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+html[dir="rtl"] .quick-contact-bar { right: auto; left: 24px; }
+.qcb-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+html[lang="ar"] .qcb-btn { font-family: 'Cairo', sans-serif; }
+.qcb-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+.qcb-wa  { background: #25D366; }
+.qcb-wa:hover  { background: #1ebe57; }
+.qcb-call { background: var(--navy); }
+.qcb-call:hover { background: var(--navy-lt); }
+.qcb-loc  { background: var(--teal-dk); }
+.qcb-loc:hover  { background: var(--teal); }
+.qcb-label { display: none; }
+.qcb-btn:hover .qcb-label,
+.qcb-btn:focus .qcb-label { display: inline; }
+
+/* accessibility */
+a:focus-visible, button:focus-visible, select:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+
+/* Fix #5: footer padding only on mobile where bar is full-width */
+@media (max-width: 600px) {
+  .quick-contact-bar {
+    bottom: 0; right: 0; left: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 0;
+    padding: 8px 12px;
+    background: #fff;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+    gap: 0;
+  }
+  html[dir="rtl"] .quick-contact-bar { left: 0; right: 0; }
+  .qcb-btn {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 10px;
+    background: transparent;
+    color: var(--charcoal);
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 10px;
+  }
+  .qcb-wa  { color: #25D366; }
+  .qcb-call { color: var(--navy); }
+  .qcb-loc  { color: var(--teal-dk); }
+  .qcb-btn:hover { transform: none; box-shadow: none; }
+  .qcb-label { display: inline; }
+  footer { padding-bottom: 95px; }
+  .city-enquire-bar { padding: 18px; }
+  .city-select { width: 100%; }
+  .city-enquire-controls { min-width: 0; }
+}
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link"><span class="en-i">Skip to main content</span><span class="ar-i">انتقل إلى المحتوى الرئيسي</span></a>
+
+<!-- ═══ FLOATING QUICK-CONTACT BAR ═══ -->
+<div class="quick-contact-bar" role="complementary" aria-label="Quick contact">
+  <a href="https://wa.me/966551210035" class="qcb-btn qcb-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="qcb-label"><span class="en-i">WhatsApp</span><span class="ar-i">واتساب</span></span>
+  </a>
+  <a href="tel:+966551210035" class="qcb-btn qcb-call" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="qcb-label"><span class="en-i">Call</span><span class="ar-i">اتصل</span></span>
+  </a>
+  <a href="#contact" class="qcb-btn qcb-loc" aria-label="Location">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span class="qcb-label"><span class="en-i">Location</span><span class="ar-i">الموقع</span></span>
+  </a>
+</div>
 
 <!-- ═══ NAVBAR ═══ -->
 <header id="nav">
@@ -1220,13 +1559,17 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
       <span class="ar">تقدم ميدور خدمات التمريض والعلاج والرعاية الطبية مباشرةً إلى المرضى في جميع أنحاء المملكة — لضمان الراحة والكرامة والتميز الطبي في كل زيارة منزلية.</span>
     </p>
 
-    <a href="#services" class="hero-cta">
-      <span class="en-i">Explore Our Services</span>
-      <span class="ar-i">استعرض خدماتنا</span>
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M3 8h10M9 4l4 4-4 4"/>
-      </svg>
-    </a>
+    <div class="hero-cta-group">
+      <a href="https://wa.me/966551210035" class="hero-cta hero-cta-wa" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="en-i">Book on WhatsApp</span><span class="ar-i">احجز عبر واتساب</span>
+      </a>
+      <a href="#services" class="hero-cta hero-cta-outline">
+        <span class="en-i">Explore Our Services</span><span class="ar-i">استعرض خدماتنا</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <p class="hero-phone"><a href="tel:+966551210035" dir="ltr"><span class="en-i">Or call: 055 121 0035</span><span class="ar-i">أو اتصل: 055 121 0035</span></a></p>
   </div>
 </section>
 
@@ -1290,155 +1633,156 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
   <div class="services-cards-body">
     <div class="container">
       <nav class="svc-tabs-nav" role="tablist">
-        <button id="tab-btn-primary"   class="svc-tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-primary"   tabindex="0"  onclick="showSvcTab(this,'tab-primary')"><span class="en-i">Primary Care</span><span class="ar-i">الرعاية الأولية</span></button>
-        <button id="tab-btn-specialty" class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-specialty" tabindex="-1" onclick="showSvcTab(this,'tab-specialty')"><span class="en-i">Specialty Care</span><span class="ar-i">الرعاية التخصصية</span></button>
-        <button id="tab-btn-imaging"   class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-imaging"   tabindex="-1" onclick="showSvcTab(this,'tab-imaging')"><span class="en-i">Diagnostic Imaging</span><span class="ar-i">التصوير التشخيصي</span></button>
+        <button id="tab-btn-primary"   class="svc-tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-primary"   tabindex="0"  onclick="showSvcTab(this,'tab-primary')"><span class="en-i">Primary Care</span><span class="ar-i">الرعاية الأولية</span><span class="svc-tab-count" aria-hidden="true">6</span></button>
+        <button id="tab-btn-specialty" class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-specialty" tabindex="-1" onclick="showSvcTab(this,'tab-specialty')"><span class="en-i">Specialty Care</span><span class="ar-i">الرعاية التخصصية</span><span class="svc-tab-count" aria-hidden="true">9</span></button>
+        <button id="tab-btn-imaging"   class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-imaging"   tabindex="-1" onclick="showSvcTab(this,'tab-imaging')"><span class="en-i">Diagnostic Imaging</span><span class="ar-i">التصوير التشخيصي</span><span class="svc-tab-count" aria-hidden="true">4</span></button>
         <button id="tab-btn-corporate" class="svc-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-corporate" tabindex="-1" onclick="showSvcTab(this,'tab-corporate')"><span class="en-i">Corporate</span><span class="ar-i">الشركات والمنشآت</span></button>
       </nav>
 
       <div id="tab-primary" class="svc-tab-panel active" role="tabpanel" aria-labelledby="tab-btn-primary" tabindex="0">
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-service-en="Doctor Visits" data-service-ar="زيارات طبية منزلية">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
             <div class="svc-name"><span class="en-i">Doctor Visits</span><span class="ar-i">زيارات طبية منزلية</span></div>
             <div class="svc-desc"><span class="en">Licensed physicians visit patients at home for consultations, diagnosis, prescription, and medical follow-up.</span><span class="ar">أطباء مرخصون يزورون المرضى في منازلهم للفحص والتشخيص والوصف الطبي والمتابعة.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Licensed Physicians</span><span class="ar-i">أطباء مرخصون</span></span><span class="svc-tag"><span class="en-i">Home Visits</span><span class="ar-i">زيارات منزلية</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Doctor%20Visits." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Nursing Service" data-service-ar="خدمات التمريض">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
             <div class="svc-name"><span class="en-i">Nursing Service</span><span class="ar-i">خدمات التمريض</span></div>
             <div class="svc-desc"><span class="en">Wound care, IV therapy, medication administration as prescribed, and vital sign monitoring by licensed nurses at the patient's home.</span><span class="ar">العناية بالجروح والعلاج الوريدي وإعطاء الأدوية ومتابعة العلامات الحيوية من قِبل ممرضين مرخصين في المنزل.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Licensed Nurses</span><span class="ar-i">ممرضون مرخصون</span></span><span class="svc-tag"><span class="en-i">24/7 Available</span><span class="ar-i">متاح 24/7</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Nursing%20Service." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Vaccination Service" data-service-ar="خدمة التطعيم">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div class="svc-name"><span class="en-i">Vaccination Service</span><span class="ar-i">خدمة التطعيم</span></div>
             <div class="svc-desc"><span class="en">Scheduled and on-demand vaccination at home for all ages — flu shots, travel vaccines, childhood immunisations, and workplace vaccination drives.</span><span class="ar">التطعيم المنزلي المبرمج وعند الطلب لجميع الأعمار — الإنفلونزا والسفر وتطعيمات الأطفال وحملات التطعيم لبيئة العمل.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">All Ages</span><span class="ar-i">جميع الأعمار</span></span><span class="svc-tag"><span class="en-i">On-Demand</span><span class="ar-i">عند الطلب</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Vaccination%20Service." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Laboratory Service" data-service-ar="الخدمات المختبرية">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></div>
             <div class="svc-name"><span class="en-i">Laboratory Service</span><span class="ar-i">الخدمات المختبرية</span></div>
             <div class="svc-desc"><span class="en">Home sample collection for blood tests, urinalysis, cultures, and more — processed by accredited labs with results delivered digitally.</span><span class="ar">أخذ عينات منزلية لفحوصات الدم والبول والمزارع وغيرها — تُحلَّل في مختبرات معتمدة وتُرسَل النتائج رقمياً.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Home Collection</span><span class="ar-i">أخذ عينات منزلي</span></span><span class="svc-tag"><span class="en-i">Digital Results</span><span class="ar-i">نتائج رقمية</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Laboratory%20Service." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Emergency Ambulance" data-service-ar="سيارة الإسعاف الطارئة">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10"/></svg></div>
             <div class="svc-name"><span class="en-i">Emergency Ambulance</span><span class="ar-i">سيارة الإسعاف الطارئة</span></div>
             <div class="svc-desc"><span class="en">Rapid-response emergency ambulance staffed by paramedics and equipped for critical care — available 24/7 for medical emergencies.</span><span class="ar">إسعاف طارئ سريع الاستجابة بطاقم من المسعفين المدربين ومجهز للرعاية الحرجة — متاح 24/7 لحالات الطوارئ الطبية.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">24/7 Response</span><span class="ar-i">استجابة 24/7</span></span><span class="svc-tag"><span class="en-i">Paramedic Crew</span><span class="ar-i">طاقم إسعاف</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Emergency%20Ambulance." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Non-Emergency Ambulance" data-service-ar="سيارة الإسعاف غير الطارئة">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
             <div class="svc-name"><span class="en-i">Non-Emergency Ambulance</span><span class="ar-i">سيارة الإسعاف غير الطارئة</span></div>
             <div class="svc-desc"><span class="en">Safe, comfortable patient transport for scheduled appointments, hospital transfers, dialysis runs, and medical facility visits.</span><span class="ar">نقل مريح وآمن للمرضى للمواعيد المبرمجة والنقل بين المستشفيات وجلسات الغسيل والزيارات الطبية.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Patient Transport</span><span class="ar-i">نقل المرضى</span></span><span class="svc-tag"><span class="en-i">Scheduled Trips</span><span class="ar-i">رحلات مبرمجة</span></span></div>
-          </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-            <div class="svc-name"><span class="en-i">Physical Therapy</span><span class="ar-i">العلاج الطبيعي</span></div>
-            <div class="svc-desc"><span class="en">Certified physiotherapists delivering hands-on treatment at home — manual therapy, therapeutic exercises, and pain management.</span><span class="ar">معالجون طبيعيون معتمدون يقدمون العلاج في المنزل — علاج يدوي وتمارين علاجية وإدارة الألم.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Certified PTs</span><span class="ar-i">معالجون معتمدون</span></span><span class="svc-tag"><span class="en-i">Home Sessions</span><span class="ar-i">جلسات منزلية</span></span></div>
-          </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div class="svc-name"><span class="en-i">Rehabilitation Programs</span><span class="ar-i">برامج إعادة التأهيل</span></div>
-            <div class="svc-desc"><span class="en">Structured multi-session rehabilitation plans for post-surgical recovery, stroke, orthopaedic, and neurological conditions.</span><span class="ar">برامج إعادة تأهيل متعددة الجلسات لحالات ما بعد الجراحة والسكتة الدماغية والعظام والأعصاب.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Structured Plans</span><span class="ar-i">خطط منظمة</span></span><span class="svc-tag"><span class="en-i">Multi-Condition</span><span class="ar-i">متعدد الحالات</span></span></div>
-          </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div class="svc-name"><span class="en-i">Diabetes Management</span><span class="ar-i">إدارة السكري</span></div>
-            <div class="svc-desc"><span class="en">Comprehensive home-based diabetes care — blood glucose monitoring, insulin management, dietary guidance, and ongoing follow-up.</span><span class="ar">رعاية السكري الشاملة في المنزل — متابعة السكر في الدم وإدارة الأنسولين والإرشاد الغذائي والمتابعة المستمرة.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Glucose Monitoring</span><span class="ar-i">متابعة السكر</span></span><span class="svc-tag"><span class="en-i">Dietary Support</span><span class="ar-i">دعم غذائي</span></span></div>
-          </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <div class="svc-name"><span class="en-i">Pregnancy Program</span><span class="ar-i">برنامج الحمل</span></div>
-            <div class="svc-desc"><span class="en">Home healthcare support throughout pregnancy — antenatal monitoring, blood pressure checks, gestational diabetes screening, and postnatal care.</span><span class="ar">دعم صحي منزلي طوال فترة الحمل — متابعة ما قبل الولادة وفحص ضغط الدم وسكر الحمل ورعاية ما بعد الولادة.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Antenatal Care</span><span class="ar-i">رعاية ما قبل الولادة</span></span><span class="svc-tag"><span class="en-i">Postnatal</span><span class="ar-i">ما بعد الولادة</span></span></div>
-          </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-            <div class="svc-name"><span class="en-i">Employment Medical Test</span><span class="ar-i">الفحص الطبي للتوظيف</span></div>
-            <div class="svc-desc"><span class="en">Pre-employment medical examinations at home or on-site — blood tests, physical assessment, and health certification for new hires and Iqama renewals.</span><span class="ar">فحوصات طبية للتوظيف في المنزل أو في موقع العمل — تحاليل الدم والفحص الجسدي والشهادة الصحية للموظفين الجدد وتجديد الإقامة.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Pre-Employment</span><span class="ar-i">ما قبل التوظيف</span></span><span class="svc-tag"><span class="en-i">Certified Reports</span><span class="ar-i">تقارير معتمدة</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Non-Emergency%20Ambulance." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
         </div>
       </div>
 
       <div id="tab-specialty" class="svc-tab-panel" role="tabpanel" aria-labelledby="tab-btn-specialty" tabindex="0">
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-service-en="Hospital at Home" data-service-ar="المستشفى في المنزل">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
             <div class="svc-name"><span class="en-i">Hospital at Home</span><span class="ar-i">المستشفى في المنزل</span></div>
             <div class="svc-desc"><span class="en">Acute care services at home — IV infusions, clinical monitoring, specialist consultations, and daily nursing rounds.</span><span class="ar">رعاية حادة في المنزل — تسريبات وريدية ومراقبة سريرية واستشارات متخصصة وجولات تمريض يومية.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Acute Care</span><span class="ar-i">رعاية حادة</span></span><span class="svc-tag"><span class="en-i">Daily Rounds</span><span class="ar-i">جولات يومية</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Hospital%20at%20Home." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Wellness Program" data-service-ar="برنامج العافية">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 6v4l3 3"/></svg></div>
             <div class="svc-name"><span class="en-i">Wellness Program</span><span class="ar-i">برنامج العافية</span></div>
             <div class="svc-desc"><span class="en">Personalised wellness plans covering nutrition, physical activity, mental wellbeing, and preventive screenings.</span><span class="ar">خطط عافية مخصصة تشمل التغذية والنشاط البدني والصحة النفسية والفحوصات الوقائية.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Preventive Health</span><span class="ar-i">الصحة الوقائية</span></span><span class="svc-tag"><span class="en-i">Personalised</span><span class="ar-i">مخصص</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Wellness%20Program." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="svc-name"><span class="en-i">Employment Checkup</span><span class="ar-i">الفحص الدوري لجهة العمل</span></div>
-            <div class="svc-desc"><span class="en">Periodic occupational health examinations — fitness-to-work assessments, health monitoring, and preventive screenings at your workplace.</span><span class="ar">فحوصات صحة مهنية دورية — تقييم اللياقة للعمل ومراقبة الصحة والفحوصات الوقائية في موقع عملك.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Occupational Health</span><span class="ar-i">الصحة المهنية</span></span><span class="svc-tag"><span class="en-i">On-Site</span><span class="ar-i">في الموقع</span></span></div>
-          </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Elderly Care" data-service-ar="رعاية كبار السن">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg></div>
             <div class="svc-name"><span class="en-i">Elderly Care</span><span class="ar-i">رعاية كبار السن</span></div>
             <div class="svc-desc"><span class="en">Compassionate, dignified care for elderly patients — personal care assistance, chronic condition monitoring, falls prevention, and companionship programs.</span><span class="ar">رعاية رحيمة وكريمة لكبار السن — مساعدة شخصية ومتابعة الأمراض المزمنة والوقاية من السقوط وبرامج الرفقة.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Daily Assistance</span><span class="ar-i">مساعدة يومية</span></span><span class="svc-tag"><span class="en-i">Chronic Monitoring</span><span class="ar-i">متابعة مزمنة</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Elderly%20Care." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-            <div class="svc-name"><span class="en-i">Population Health Management</span><span class="ar-i">إدارة الصحة المجتمعية</span></div>
-            <div class="svc-desc"><span class="en">Data-driven health programs for defined patient populations — chronic disease registries, preventive care outreach, and outcome reporting.</span><span class="ar">برامج صحية قائمة على البيانات لفئات محددة — سجلات الأمراض المزمنة والتوعية الوقائية وتقارير النتائج.</span></div>
-            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Community Health</span><span class="ar-i">الصحة المجتمعية</span></span><span class="svc-tag"><span class="en-i">Data Driven</span><span class="ar-i">قائم على البيانات</span></span></div>
-          </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Wound Care Program" data-service-ar="برنامج العناية بالجروح">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="svc-name"><span class="en-i">Wound Care Program</span><span class="ar-i">برنامج العناية بالجروح</span></div>
             <div class="svc-desc"><span class="en">Specialised wound management at home — acute wounds, chronic ulcers, post-surgical sites, and diabetic foot care by trained wound care nurses.</span><span class="ar">إدارة متخصصة للجروح في المنزل — الجروح الحادة والقرح المزمنة ومواقع ما بعد الجراحة وقدم السكري.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Wound Specialists</span><span class="ar-i">متخصصو الجروح</span></span><span class="svc-tag"><span class="en-i">Diabetic Foot</span><span class="ar-i">قدم السكري</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Wound%20Care%20Program." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Extended Care Program" data-service-ar="برنامج الرعاية الممتدة">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
             <div class="svc-name"><span class="en-i">Extended Care Program</span><span class="ar-i">برنامج الرعاية الممتدة</span></div>
             <div class="svc-desc"><span class="en">Long-term home healthcare for patients requiring ongoing clinical support — continuous nursing, regular physician visits, and care coordination.</span><span class="ar">رعاية صحية منزلية طويلة الأمد للمرضى الذين يحتاجون دعماً سريرياً مستمراً — تمريض مستمر وزيارات طبية منتظمة وتنسيق الرعاية.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Long-Term Care</span><span class="ar-i">رعاية طويلة الأمد</span></span><span class="svc-tag"><span class="en-i">Care Coordination</span><span class="ar-i">تنسيق الرعاية</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Extended%20Care%20Program." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Physical Therapy" data-service-ar="العلاج الطبيعي">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+            <div class="svc-name"><span class="en-i">Physical Therapy</span><span class="ar-i">العلاج الطبيعي</span></div>
+            <div class="svc-desc"><span class="en">Certified physiotherapists delivering hands-on treatment at home — manual therapy, therapeutic exercises, and pain management.</span><span class="ar">معالجون طبيعيون معتمدون يقدمون العلاج في المنزل — علاج يدوي وتمارين علاجية وإدارة الألم.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Certified PTs</span><span class="ar-i">معالجون معتمدون</span></span><span class="svc-tag"><span class="en-i">Home Sessions</span><span class="ar-i">جلسات منزلية</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Physical%20Therapy." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Rehabilitation Programs" data-service-ar="برامج إعادة التأهيل">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="svc-name"><span class="en-i">Rehabilitation Programs</span><span class="ar-i">برامج إعادة التأهيل</span></div>
+            <div class="svc-desc"><span class="en">Structured multi-session rehabilitation plans for post-surgical recovery, stroke, orthopaedic, and neurological conditions.</span><span class="ar">برامج إعادة تأهيل متعددة الجلسات لحالات ما بعد الجراحة والسكتة الدماغية والعظام والأعصاب.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Structured Plans</span><span class="ar-i">خطط منظمة</span></span><span class="svc-tag"><span class="en-i">Multi-Condition</span><span class="ar-i">متعدد الحالات</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Rehabilitation%20Programs." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Diabetes Management" data-service-ar="إدارة السكري">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="svc-name"><span class="en-i">Diabetes Management</span><span class="ar-i">إدارة السكري</span></div>
+            <div class="svc-desc"><span class="en">Comprehensive home-based diabetes care — blood glucose monitoring, insulin management, dietary guidance, and ongoing follow-up.</span><span class="ar">رعاية السكري الشاملة في المنزل — متابعة السكر في الدم وإدارة الأنسولين والإرشاد الغذائي والمتابعة المستمرة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Glucose Monitoring</span><span class="ar-i">متابعة السكر</span></span><span class="svc-tag"><span class="en-i">Dietary Support</span><span class="ar-i">دعم غذائي</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Diabetes%20Management." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Pregnancy Program" data-service-ar="برنامج الحمل">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="svc-name"><span class="en-i">Pregnancy Program</span><span class="ar-i">برنامج الحمل</span></div>
+            <div class="svc-desc"><span class="en">Home healthcare support throughout pregnancy — antenatal monitoring, blood pressure checks, gestational diabetes screening, and postnatal care.</span><span class="ar">دعم صحي منزلي طوال فترة الحمل — متابعة ما قبل الولادة وفحص ضغط الدم وسكر الحمل ورعاية ما بعد الولادة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Antenatal Care</span><span class="ar-i">رعاية ما قبل الولادة</span></span><span class="svc-tag"><span class="en-i">Postnatal</span><span class="ar-i">ما بعد الولادة</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Pregnancy%20Program." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
         </div>
       </div>
 
       <div id="tab-imaging" class="svc-tab-panel" role="tabpanel" aria-labelledby="tab-btn-imaging" tabindex="0">
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-service-en="X-Ray at Home" data-service-ar="الأشعة السينية المنزلية">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
             <div class="svc-name"><span class="en-i">X-Ray at Home</span><span class="ar-i">الأشعة السينية المنزلية</span></div>
             <div class="svc-desc"><span class="en">Portable X-ray at the patient's home — chest, limb, and skeletal imaging by qualified radiology technicians with same-day digital reports.</span><span class="ar">أشعة سينية متنقلة في منزل المريض — تصوير الصدر والأطراف والعظام مع تقارير رقمية في اليوم ذاته.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Portable Unit</span><span class="ar-i">جهاز متنقل</span></span><span class="svc-tag"><span class="en-i">Same-Day Report</span><span class="ar-i">تقرير فوري</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20X-Ray%20at%20Home." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Ultrasound at Home" data-service-ar="الموجات فوق الصوتية المنزلية">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
             <div class="svc-name"><span class="en-i">Ultrasound at Home</span><span class="ar-i">الموجات فوق الصوتية المنزلية</span></div>
             <div class="svc-desc"><span class="en">Diagnostic ultrasound at home for abdominal, pelvic, obstetric, and soft tissue imaging by certified sonographers.</span><span class="ar">تصوير بالموجات فوق الصوتية في المنزل للبطن والحوض والحمل والأنسجة الرخوة بواسطة فنيين معتمدين.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Obstetric</span><span class="ar-i">صدى الحمل</span></span><span class="svc-tag"><span class="en-i">Abdominal</span><span class="ar-i">صدى البطن</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Ultrasound%20at%20Home." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="ECG" data-service-ar="تخطيط القلب الكهربائي">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
             <div class="svc-name"><span class="en-i">ECG</span><span class="ar-i">تخطيط القلب الكهربائي</span></div>
             <div class="svc-desc"><span class="en">12-lead ECG at home for cardiac assessment, arrhythmia screening, and pre-operative evaluation with digital report to referring physician.</span><span class="ar">تخطيط قلب 12 قناة في المنزل للتقييم القلبي وكشف اضطرابات النظم والتقييم قبل الجراحة.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">12-Lead ECG</span><span class="ar-i">12 قناة</span></span><span class="svc-tag"><span class="en-i">Digital Report</span><span class="ar-i">تقرير رقمي</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20ECG." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-service-en="Stress ECG" data-service-ar="تخطيط القلب تحت الجهد">
             <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></div>
             <div class="svc-name"><span class="en-i">Stress ECG</span><span class="ar-i">تخطيط القلب تحت الجهد</span></div>
             <div class="svc-desc"><span class="en">Exercise or pharmacological stress ECG to evaluate cardiac function — used to assess coronary artery disease and exercise tolerance.</span><span class="ar">تخطيط قلب بالجهد البدني أو الدوائي لتقييم وظيفة القلب — يُستخدم لتقييم أمراض الشرايين التاجية وتحمل التمرين.</span></div>
             <div class="svc-tags"><span class="svc-tag"><span class="en-i">Cardiac Stress Test</span><span class="ar-i">اختبار الجهد القلبي</span></span><span class="svc-tag"><span class="en-i">Coronary Assessment</span><span class="ar-i">تقييم الشرايين</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Stress%20ECG." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
           </div>
         </div>
       </div>
@@ -1464,6 +1808,59 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
               <li><span class="en-i">Short-Term Event Coverage</span><span class="ar-i">تغطية قصيرة المدى للفعاليات</span></li>
             </ul>
           </div>
+        </div>
+        <div class="services-grid" style="margin-top:32px;">
+          <div class="service-card" data-service-en="Employment Medical Test" data-service-ar="الفحص الطبي للتوظيف">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="svc-name"><span class="en-i">Employment Medical Test</span><span class="ar-i">الفحص الطبي للتوظيف</span></div>
+            <div class="svc-desc"><span class="en">Pre-employment medical examinations at home or on-site — blood tests, physical assessment, and health certification for new hires and Iqama renewals.</span><span class="ar">فحوصات طبية للتوظيف في المنزل أو في موقع العمل — تحاليل الدم والفحص الجسدي والشهادة الصحية للموظفين الجدد وتجديد الإقامة.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Pre-Employment</span><span class="ar-i">ما قبل التوظيف</span></span><span class="svc-tag"><span class="en-i">Certified Reports</span><span class="ar-i">تقارير معتمدة</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Employment%20Medical%20Test." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Employment Checkup" data-service-ar="الفحص الدوري لجهة العمل">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="svc-name"><span class="en-i">Employment Checkup</span><span class="ar-i">الفحص الدوري لجهة العمل</span></div>
+            <div class="svc-desc"><span class="en">Periodic occupational health examinations — fitness-to-work assessments, health monitoring, and preventive screenings at your workplace.</span><span class="ar">فحوصات صحة مهنية دورية — تقييم اللياقة للعمل ومراقبة الصحة والفحوصات الوقائية في موقع عملك.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Occupational Health</span><span class="ar-i">الصحة المهنية</span></span><span class="svc-tag"><span class="en-i">On-Site</span><span class="ar-i">في الموقع</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Employment%20Checkup." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+          <div class="service-card" data-service-en="Population Health Management" data-service-ar="إدارة الصحة المجتمعية">
+            <div class="svc-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+            <div class="svc-name"><span class="en-i">Population Health Management</span><span class="ar-i">إدارة الصحة المجتمعية</span></div>
+            <div class="svc-desc"><span class="en">Data-driven health programs for defined patient populations — chronic disease registries, preventive care outreach, and outcome reporting.</span><span class="ar">برامج صحية قائمة على البيانات لفئات محددة — سجلات الأمراض المزمنة والتوعية الوقائية وتقارير النتائج.</span></div>
+            <div class="svc-tags"><span class="svc-tag"><span class="en-i">Community Health</span><span class="ar-i">الصحة المجتمعية</span></span><span class="svc-tag"><span class="en-i">Data Driven</span><span class="ar-i">قائم على البيانات</span></span></div>
+            <a class="svc-enquire-btn" href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Population%20Health%20Management." target="_blank" rel="noopener"><span class="en-i">Enquire about this service ↗</span><span class="ar-i">استفسر عن الخدمة ↗</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- City enquiry bar -->
+      <div class="city-enquire-bar">
+        <label class="city-enquire-label" for="city-select">
+          <span class="en-i">Your city</span><span class="ar-i">اختر مدينتك</span>
+        </label>
+        <div class="city-enquire-controls">
+          <select id="city-select" class="city-select">
+            <option value=""><span class="en-i">All coverage cities</span><span class="ar-i">جميع مدن التغطية</span></option>
+            <option value="Riyadh" data-ar="الرياض">Riyadh — الرياض</option>
+            <option value="Al-Kharj" data-ar="الخرج">Al-Kharj — الخرج</option>
+            <option value="Qassim" data-ar="القصيم">Qassim — القصيم</option>
+            <option value="Jeddah" data-ar="جدة">Jeddah — جدة</option>
+            <option value="Makkah" data-ar="مكة المكرمة">Makkah — مكة المكرمة</option>
+            <option value="Taif" data-ar="الطائف">Taif — الطائف</option>
+            <option value="Madinah" data-ar="المدينة المنورة">Madinah — المدينة المنورة</option>
+            <option value="Yanbu" data-ar="ينبع">Yanbu — ينبع</option>
+            <option value="Rabigh" data-ar="رابغ">Rabigh — رابغ</option>
+            <option value="Khobar" data-ar="الخبر">Khobar — الخبر</option>
+            <option value="Dammam" data-ar="الدمام">Dammam — الدمام</option>
+            <option value="Jubail" data-ar="الجبيل">Jubail — الجبيل</option>
+            <option value="Al-Hafouf" data-ar="الأحساء / الهفوف">Al-Hafouf — الأحساء</option>
+            <option value="Qatif" data-ar="القطيف">Qatif — القطيف</option>
+          </select>
+          <button id="city-enquire-btn" class="city-enquire-cta">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span class="en-i">Enquire for My City</span><span class="ar-i">استفسر لمدينتي</span>
+          </button>
         </div>
       </div>
 
@@ -1508,6 +1905,12 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
           <li><span class="en-i">Qatif</span><span class="ar-i">القطيف</span></li>
         </ul>
       </div>
+    </div>
+    <div class="coverage-cta-wrap">
+      <a href="https://wa.me/966551210035?text=Hello%2C%20I%27d%20like%20to%20check%20if%20Medoor%20covers%20my%20area." class="btn-coverage-cta" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="en-i">Check Coverage for Your City</span><span class="ar-i">تحقق من التغطية لمدينتك</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1670,6 +2073,12 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
             <div class="ci-label"><span class="en-i">Address</span><span class="ar-i">العنوان</span></div>
             <div class="ci-value"><span class="en">Leaders Tower 2, King Fahd Rd, Al Olaya</span><span class="ar">برج القادة 2، طريق الملك فهد، العليا</span></div>
             <div class="ci-sub"><span class="en">Riyadh 13711, Saudi Arabia</span><span class="ar">الرياض 13711، المملكة العربية السعودية</span></div>
+            <div class="map-summary">
+              <a href="https://maps.google.com/?q=Leaders+Tower+2,+King+Fahd+Road,+Al+Olaya,+Riyadh" class="btn-maps" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="en-i">Open in Google Maps</span><span class="ar-i">افتح في خرائط جوجل</span>
+              </a>
+            </div>
           </div>
         </div>
         <div class="contact-row">
@@ -1915,6 +2324,49 @@ html[dir="rtl"] .skip-link { left: auto; right: 8px; border-radius: 0 0 4px 4px;
   } else {
     animItems.forEach(function(el) { el.classList.add('is-visible'); });
   }
+
+  // ── City selector → WhatsApp enquiry ──────────────────────────────
+  (function () {
+    var btn = document.getElementById('city-enquire-btn');
+    var sel = document.getElementById('city-select');
+    if (!btn || !sel) return;
+
+    function buildCityMsg() {
+      var city = sel.value;
+      if (!city) return null;
+      var ar = document.documentElement.lang === 'ar';
+      var cityLabel = ar ? (sel.selectedOptions[0].dataset.ar || city) : city;
+      return ar
+        ? 'السلام عليكم، أرغب بالاستفسار عن خدمات ميدور المنزلية في ' + cityLabel + '.'
+        : 'Hello, I\'d like to enquire about Medoor home healthcare services in ' + city + '.';
+    }
+
+    btn.addEventListener('click', function () {
+      var msg = buildCityMsg();
+      if (!msg) return;
+      window.open('https://wa.me/966551210035?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+
+    function updateCardLinks() {
+      var ar = document.documentElement.lang === 'ar';
+      var city = sel.value;
+      var cityLabel = city && ar ? (sel.selectedOptions[0].dataset.ar || city) : city;
+      document.querySelectorAll('.svc-enquire-btn').forEach(function (a) {
+        var card = a.closest('.service-card');
+        if (!card) return;
+        var service = ar ? card.dataset.serviceAr : card.dataset.serviceEn;
+        var msg = city
+          ? (ar ? 'السلام عليكم، أرغب بالاستفسار عن خدمة ' + service + ' في ' + cityLabel + '.'
+                : 'Hello, I\'d like to enquire about ' + service + ' in ' + city + '.')
+          : (ar ? 'السلام عليكم، أرغب بالاستفسار عن خدمة ' + service + '.'
+                : 'Hello, I\'d like to enquire about ' + service + '.');
+        a.href = 'https://wa.me/966551210035?text=' + encodeURIComponent(msg);
+      });
+    }
+
+    sel.addEventListener('change', updateCardLinks);
+    new MutationObserver(updateCardLinks).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  })();
 </script>
 </body>
 </html>
