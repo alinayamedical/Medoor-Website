@@ -2366,6 +2366,7 @@ a:focus-visible, button:focus-visible, select:focus-visible {
 
     sel.addEventListener('change', updateCardLinks);
     new MutationObserver(updateCardLinks).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    updateCardLinks();
   })();
 </script>
 </body>
